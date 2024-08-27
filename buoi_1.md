@@ -44,14 +44,67 @@ int main() {
 #### Bài 3. Tính toán giá trị biểu thức 2
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int a, b, c;
+
+  cout << "Tinh bieu thuc S = a*(b+c)+b*(a+c)\n";
+  cout << "Nhap ba gia tri a, b, c(so nguyen duong): ";
+  cin >> a >> b >> c;
+
+  cout << "S = " << a * (b + c) + b * (a + c);
+
+  return 0;
+}
 ```
 #### Bài 4. Tính tổng, hiệu, tích, thương
 Giải:
 ```c
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+  int number_1;
+  int number_2;
+
+  cout << "Nhap hai so: ";
+  cin >> number_1 >> number_2;
+  cout << setprecision(2) << fixed;
+  cout << "Tong cua hai so: " << number_1 + number_2 << endl;
+  cout << "Hieu cua hai so: " << number_1 - number_2 << endl;
+  cout << "Tich cua hai so: " <<(long long) number_1 * number_2 << endl;
+  cout << "Thuong cua hai so: " << 1.0 * number_1 / number_2;
+
+  return 0;
+}
 ```
 #### Bài 5. Tính chu vi, diện tích hình tròn
 Giải:
 ```c
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+#define PI 3.14 
+//chu vi hinh tron C = 2πr
+//dien tich hinh tron S = πr^2
+
+int main() {
+  int r;
+
+  cout << "Nhap ban kinh r: ";
+  cin >> r;
+
+  cout << fixed << setprecision(2);
+  cout << "Chu vi hinh tron C = " << 2 * PI * r << endl;
+  cout << "Dien tich hinh tron S = " << PI * pow(r, 2) << endl;
+
+  return 0;
+}
 ```
 #### Bài 6. Tính khoảng cách
 Giải:
