@@ -24,6 +24,22 @@ int main() {
 #### Bài 2. Tính toán giá trị biểu thức
 Giải:
 ```c
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+
+int main() {
+  int x;
+  
+  cout << "Giai bieu thuc A(x) = x^3 + 3x^2 + x + 1\n";
+  cout << "Nhap gia tri cua x: ";
+  cin >> x;
+  cout << "Dap an cua bieu thuc tren la: "<< pow(x, 3) + 3 * pow(x, 2) + x + 1; // ham pow(): tinh mu
+
+  return 0;
+}
 ```
 #### Bài 3. Tính toán giá trị biểu thức 2
 Giải:
