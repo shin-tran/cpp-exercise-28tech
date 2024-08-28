@@ -115,17 +115,18 @@ Giải:
 using namespace std;
 
 int main() {
-	int x1, x2, y1, y2;
-	float d_xy;
+  int x1, x2, y1, y2;
+  float d_xy;
 	
-	cout << "Tinh khoang cach Euclid giua hai diem trong he truc toa do Oxy\n";
-	cout << "Nhap toa do (x1, y1) va (x2, y2): ";
-	cin >> x1 >> y1 >> x2 >> y2;
+  cout << "Tinh khoang cach Euclid giua hai diem trong he truc toa do Oxy\n";
+  cout << "Nhap toa do (x1, y1) va (x2, y2): ";
+  cin >> x1 >> y1 >> x2 >> y2;
 	
-	cout << fixed << setprecision(2);
-	d_xy = sqrt(pow((y1 - x1), 2) + pow((y2 - x2), 2));
-	cout << "Khoang cach giua hai diem la: " << d_xy;
+  cout << fixed << setprecision(2);
+  d_xy = sqrt(pow((y1 - x1), 2) + pow((y2 - x2), 2));
+  cout << "Khoang cach giua hai diem la: " << d_xy;
 	}
+  return 0;
 ```
 #### Bài 7. Chuyển đơn vị đo C và F
 Giải:
