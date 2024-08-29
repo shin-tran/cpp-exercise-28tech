@@ -27,7 +27,6 @@ Giải:
 #include <iostream>
 #include <cmath>
 
-
 using namespace std;
 
 int main() {
@@ -159,7 +158,6 @@ int main() {
   int n;
   long long sum = 0;
 
-
   cout << "Nhap gia tri n: ";
   cin >> n;
 
@@ -182,7 +180,6 @@ using namespace std;
 int main() {
   int n;
   long long sum = 0;
-
 
   cout << "Nhap gia tri n: ";
   cin >> n;
