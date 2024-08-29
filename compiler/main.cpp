@@ -1,17 +1,19 @@
 #include <iostream>
-#include <iomanip>
+#include <cmath>
 using namespace std;
 
 int main() {
-  int C;
+  int n;
+  long long sum = 0;
 
-  cout << "Chuyen don vi do C sang F\n";
-  cout << "Vui long nhap do C: ";
-  cin >> C;
+  cout << "Nhap gia tri n: ";
+  cin >> n;
 
-  float F = (C * 1.8) + 32;
-  cout << fixed << setprecision(2);
-  cout << "Do F la: " << F << endl;
+  for (int i = 1; i <= n; i++) {
+    sum += pow(-1, i) * i;
+  }
+
+  cout << "Tong cac so tu 1 den " << n << " la: " << sum << endl;
 
   return 0;
 }

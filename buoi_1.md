@@ -152,22 +152,119 @@ int main() {
 #### Bài 8. Tính tổng 1
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int n;
+  long long sum = 0;
+
+
+  cout << "Nhap gia tri n: ";
+  cin >> n;
+
+  for (int i = 1; i <= n; i++) {
+    sum += i;
+  }
+
+  cout << "Tong cac so tu 1 den " << n << " la: " << sum << endl;
+
+  return 0;
+}
 ```
 #### Bài 9. Tính tổng 2
 Giải:
 ```c
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+  int n;
+  long long sum = 0;
+
+
+  cout << "Nhap gia tri n: ";
+  cin >> n;
+
+  for (int i = 1; i <= n; i++) {
+    sum += pow(i, 2);
+  }
+
+  cout << "Tong cac so tu 1 den " << n << " la: " << sum << endl;
+
+  return 0;
+}
 ```
 #### Bài 10. Tính tổng 3
 Giải:
 ```c
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+int main() {
+  int n;
+  float sum = 0;
+
+  cout << "Nhap gia tri n: ";
+  cin >> n;
+
+  cout << fixed << setprecision(2);
+  for (int i = 1; i <= n; i++) {
+    sum += 1.0 / (i * (i + 1));
+  }
+
+  cout << "Tong cac so tu 1 den " << n << " la: " << sum << endl;
+
+  return 0;
+}
 ```
 #### Bài 11. Tính tổng 4
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int n;
+  long long sum = 0;
+
+  cout << "Nhap gia tri n: ";
+  cin >> n;
+
+  for (int i = 1; i <= n; i++) {
+    sum += 2 * i;
+  }
+
+  cout << "Tong cac so tu 1 den " << n << " la: " << sum << endl;
+
+  return 0;
+}
 ```
 #### Bài 12. Tính tổng 5
 Giải:
 ```c
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+  int n;
+  long long sum = 0;
+
+  cout << "Nhap gia tri n: ";
+  cin >> n;
+
+  for (int i = 1; i <= n; i++) {
+    sum += pow(-1, i) * i;
+  }
+
+  cout << "Tong cac so tu 1 den " << n << " la: " << sum << endl;
+
+  return 0;
+}
 ```
 #### Bài 13. Số chia hết lớn nhất
 Giải:
