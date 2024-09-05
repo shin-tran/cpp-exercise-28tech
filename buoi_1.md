@@ -266,18 +266,90 @@ int main() {
 #### Bài 13. Số chia hết lớn nhất
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int a, b;
+
+  cout << "Nhap so nguyen duong a: ";
+  cin >> a;
+  cout << "Nhap so nguyen duong b: ";
+  cin >> b;
+
+  // Tính số chia hết cho b lớn nhất không vượt quá a
+  int result = (a / b) * b;
+
+  cout << "So can tim la: " << result << endl;
+
+  return 0;
+}
 ```
 #### Bài 14. Số chia hết nhỏ nhất
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int a, b;
+
+  cout << "Nhap so nguyen duong a: ";
+  cin >> a;
+  cout << "Nhap so nguyen duong b: ";
+  cin >> b;
+
+  // Tính số chia hết cho b nhỏ nhất và lớn hơn hoặc bằng a
+  int result = ((a + b - 1) / b) * b;
+
+  cout << "So can tim la: " << result << endl;
+
+  return 0;
+}
 ```
 #### Bài 15. Kiểm tra số chia hết cho 3 và 5
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int a;
+  cout << "Nhap so nguyen duong a: ";
+  cin >> a;
+
+  // Tính số chia hết cho cả 3 và 5
+  if ( a % 3 == 0 && a % 5 == 0) {
+  	cout << "Ket qua la: " << true << endl;
+  } else {
+  	cout << "Ket qua la: " << false << endl;
+  }
+
+  return 0;
+}
 ```
 #### Bài 16. Kiểm tra năm nhuận
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int nam;
+	
+  cout << "Nhap so nam:  ";
+  cin >> nam;
+	
+  if (nam <= 0) {
+    cout << "INVALID";
+  } else if ((nam % 400 == 0) || (nam % 4 == 0 && nam % 100 != 0)) {
+    cout << "YES";
+  } else {
+    cout << "NO";
+  }
+
+  return 0;
+}
 ```
 #### Bài 17. In ra số ngày của tháng
 Giải:
