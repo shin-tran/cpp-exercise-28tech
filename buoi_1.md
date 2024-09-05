@@ -288,6 +288,24 @@ int main() {
 #### Bài 14. Số chia hết nhỏ nhất
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int a, b;
+
+  cout << "Nhap so nguyen duong a: ";
+  cin >> a;
+  cout << "Nhap so nguyen duong b: ";
+  cin >> b;
+
+  // Tính số chia hết cho b nhỏ nhất và lớn hơn hoặc bằng a
+  int result = ((a + b - 1) / b) * b;
+
+  cout << "So can tim la: " << result << endl;
+
+  return 0;
+}
 ```
 #### Bài 15. Kiểm tra số chia hết cho 3 và 5
 Giải:
