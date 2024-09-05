@@ -310,6 +310,23 @@ int main() {
 #### Bài 15. Kiểm tra số chia hết cho 3 và 5
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int a;
+  cout << "Nhap so nguyen duong a: ";
+  cin >> a;
+
+  // Tính số chia hết cho cả 3 và 5
+  if ( a % 3 == 0 && a % 5 == 0) {
+  	cout << "Ket qua la: " << true << endl;
+  } else {
+  	cout << "Ket qua la: " << false << endl;
+  }
+
+  return 0;
+}
 ```
 #### Bài 16. Kiểm tra năm nhuận
 Giải:
