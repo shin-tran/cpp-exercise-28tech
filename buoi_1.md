@@ -331,6 +331,24 @@ int main() {
 #### Bài 16. Kiểm tra năm nhuận
 Giải:
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+	int nam;
+	
+	cout << "Nhap so nam:  ";
+	cin >> nam;
+	
+	if (nam <= 0) {
+		cout << "INVALID";
+	} else if ((nam % 400 == 0) || (nam % 4 == 0 && nam % 100 != 0)) {
+		cout << "YES";
+	} else {
+		cout << "NO";
+	}
+	return 0;
+}
 ```
 #### Bài 17. In ra số ngày của tháng
 Giải:
