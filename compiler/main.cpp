@@ -1,19 +1,30 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
 
 int main() {
-  int n;
-  long long sum = 0;
+  int so_luong;
+  float don_gia;
+  char san_pham[100];
 
-  cout << "Nhap gia tri n: ";
-  cin >> n;
+  cout << "Vui long nhap san pham: ";
+  cin.get(san_pham, 100, '\n');
 
-  for (int i = 1; i <= n; i++) {
-    sum += pow(-1, i) * i;
-  }
+  cout << "Vui long nhap so luong: ";
+  cin >> so_luong;
 
-  cout << "Tong cac so tu 1 den " << n << " la: " << sum << endl;
+  cout << "Vui long nhap don gia: ";
+  cin >> don_gia;
+
+  int tien = so_luong * don_gia;
+  int thue = tien * 10 / 100;
+
+  cout << "======HOA DON======" << endl;
+  cout << "San pham: " << san_pham << endl;
+  cout << "So luong: " << so_luong << endl;
+  cout << "Don gia: " << don_gia << endl;
+  cout << "Tien: " << tien << endl;
+  cout << "Thue: " << thue << endl;
+  cout << "Tong tien: " << tien + thue << endl;
 
   return 0;
 }
