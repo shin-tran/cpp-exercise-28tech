@@ -406,6 +406,47 @@ int main() {
 Giải:
 
 ```c
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int year, month;
+
+  cout << "Nhap thang va nam: ";
+  cin >> month >> year;
+
+  // Viết code ở đây
+  switch (month)
+  {
+  case 1:
+  case 3:
+  case 5:
+  case 7:
+  case 8:
+  case 10:
+  case 12:
+    cout << "Thang " << month << " nam " << year << " co 31 ngay";
+    break;
+  case 4:
+  case 6:
+  case 9:
+  case 11:
+    cout << "Thang " << month << " nam " << year << " co 30 ngay";
+    break;
+  case 2:
+    if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+    {
+      cout << "Thang " << month << " nam " << year << " co 29 ngay";
+    }
+    else
+      cout << "Thang " << month << " nam " << year << " co 28 ngay";
+    break;
+  default:
+    cout << "Thang khong hop le";
+  }
+  return 0;
+}
 ```
 
 #### Bài 18. Kiểm tra chữ in thường
@@ -413,6 +454,23 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  char kyTu;
+  cout << "Nhap 1 ky tu thuong: ";
+  cin >> kyTu;
+
+  if (kyTu >= 'a' && kyTu <= 'z') {
+    cout << "YES" << endl;
+  } else {
+    cout << "NO";
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 19. Kiểm tra in hoa
@@ -420,6 +478,23 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  char kyTu;
+  cout << "Nhap 1 ky tu hoa: ";
+  cin >> kyTu;
+
+  if (kyTu >= 'A' && kyTu <= 'Z') {
+    cout << "YES" << endl;
+  } else {
+    cout << "NO";
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 20. Kiểm tra chữ cái
@@ -427,6 +502,23 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  char kyTu;
+  cout << "Nhap 1 ky tu a - z hoac A - Z: ";
+  cin >> kyTu;
+
+  if ((kyTu >= 'A' && kyTu <= 'Z') || (kyTu >= 'a' && kyTu <= 'z')) {
+    cout << "YES" << endl;
+  } else {
+    cout << "NO";
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 21. Kiểm tra chữ số
@@ -434,6 +526,23 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  char so;
+  cout << "Nhap 1 so tu 0 - 9: ";
+  cin >> so;
+
+  if (so >= '0' && so <= '9') {
+    cout << "YES" << endl;
+  } else {
+    cout << "NO";
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 22. Chuyển ký tự hoa thành thường
@@ -441,6 +550,24 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  char kyTu, kyTuThuong;
+  cout << "Chuyen ky tu hoa thanh thuong: ";
+  cin >> kyTu;
+
+  if (kyTu >= 'A' && kyTu <= 'Z') {
+    kyTuThuong = kyTu + 32;
+    cout << kyTuThuong << endl;
+  } else {
+    cout << kyTu;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 23. Chuyển kí tự thường thành kí tự hoa
@@ -448,6 +575,24 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  char kyTu, kyTuHoa;
+  cout << "Chuyen ky tu thuong thanh hoa: ";
+  cin >> kyTu;
+
+  if (kyTu >= 'a' && kyTu <= 'z') {
+    kyTuHoa = kyTu - 32;
+    cout << kyTuHoa << endl;
+  } else {
+    cout << kyTu;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 24. Chữ cái kế tiếp
@@ -455,6 +600,39 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  char kyTu, kyKeTiep;
+  cout << "Chu cai ke tiep: ";
+  cin >> kyTu;
+
+  if (kyTu >= 'A' && kyTu <= 'Z') {
+    if (kyTu == 'Z') {
+      kyKeTiep = kyTu + 7;
+      cout << kyKeTiep;
+    } else {
+      kyKeTiep = kyTu + 33;
+      cout << kyKeTiep;
+    }
+  } else {
+    if (kyTu >= 'a' && kyTu <= 'z') {
+      if (kyTu == 'z') {
+        kyKeTiep = kyTu - 57;
+        cout << kyKeTiep;
+      } else {
+        kyKeTiep = kyTu - 31;
+        cout << kyKeTiep;
+      }
+    } else {
+      cout << "Ky tu khong hop le";
+    }
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 25. Tam giác hợp lệ
@@ -462,6 +640,24 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a,b,c;
+
+  cout << "Nhap do dai 3 canh cua tam giac a, b, c: ";
+  cin >> a >> b >> c;
+
+  if ((a + b > c && a + c > b && b + c > a) && (a , b , c > 0)) {
+    cout << "YES" << endl;
+  } else {
+    cout << "NO" << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 26. Kiểm tra tam giác
@@ -469,6 +665,36 @@ Giải:
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a,b,c;
+
+  cout << "Nhap do dai 3 canh cua tam giac a, b, c: ";
+  cin >> a >> b >> c;
+
+  if (a,b,c > 0) {
+    if (a + b > c && a + c > b && b + c > a) {
+      if (a == b && b == c) {
+        cout << "1" << endl;
+      } else if (a == b || a == c || b == c) {
+        cout << "2" << endl;
+      } else if (a*a + b*b == c*c || a*a + c*c == b*b || b*b + c*c == a*a) {
+        cout << "3" << endl;
+      } else {
+        cout << "4" << endl;
+      }
+    } else {
+      cout << "INVALID" << endl;
+    }
+  } else {
+    cout << "INVALID" << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 27. Chuyển đổi ngày sang tháng, năm, ngày
