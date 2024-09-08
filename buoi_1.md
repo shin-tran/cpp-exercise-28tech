@@ -1,6 +1,10 @@
+
 ## Buổi 1
+
 #### Bài 1. Phần nguyên, phần dư
+
 Giải:
+
 ```c
 #include <iostream>
 
@@ -21,8 +25,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 2. Tính toán giá trị biểu thức
+
 Giải:
+
 ```c
 #include <iostream>
 #include <cmath>
@@ -40,8 +47,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 3. Tính toán giá trị biểu thức 2
+
 Giải:
+
 ```c
 #include <iostream>
 using namespace std;
@@ -58,8 +68,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 4. Tính tổng, hiệu, tích, thương
+
 Giải:
+
 ```c
 #include <iostream>
 #include <iomanip>
@@ -80,8 +93,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 5. Tính chu vi, diện tích hình tròn
+
 Giải:
+
 ```c
 #include <iostream>
 #include <iomanip>
@@ -105,8 +121,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 6. Tính khoảng cách
+
 Giải:
+
 ```c
 #include <iostream>
 #include <cmath>
@@ -116,19 +135,22 @@ using namespace std;
 int main() {
   int x1, x2, y1, y2;
   float d_xy;
-	
+ 
   cout << "Tinh khoang cach Euclid giua hai diem trong he truc toa do Oxy\n";
   cout << "Nhap toa do (x1, y1) va (x2, y2): ";
   cin >> x1 >> y1 >> x2 >> y2;
-	
+ 
   cout << fixed << setprecision(2);
   d_xy = sqrt(pow((y1 - x1), 2) + pow((y2 - x2), 2));
   cout << "Khoang cach giua hai diem la: " << d_xy;
-	}
+ }
   return 0;
 ```
+
 #### Bài 7. Chuyển đơn vị đo C và F
+
 Giải:
+
 ```c
 #include <iostream>
 #include <iomanip>
@@ -148,8 +170,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 8. Tính tổng 1
+
 Giải:
+
 ```c
 #include <iostream>
 using namespace std;
@@ -170,8 +195,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 9. Tính tổng 2
+
 Giải:
+
 ```c
 #include <iostream>
 #include <cmath>
@@ -193,8 +221,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 10. Tính tổng 3
+
 Giải:
+
 ```c
 #include <iostream>
 #include <cmath>
@@ -218,8 +249,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 11. Tính tổng 4
+
 Giải:
+
 ```c
 #include <iostream>
 using namespace std;
@@ -240,8 +274,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 12. Tính tổng 5
+
 Giải:
+
 ```c
 #include <iostream>
 #include <cmath>
@@ -263,8 +300,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 13. Số chia hết lớn nhất
+
 Giải:
+
 ```c
 #include <iostream>
 using namespace std;
@@ -285,8 +325,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 14. Số chia hết nhỏ nhất
+
 Giải:
+
 ```c
 #include <iostream>
 using namespace std;
@@ -307,8 +350,11 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 15. Kiểm tra số chia hết cho 3 và 5
+
 Giải:
+
 ```c
 #include <iostream>
 using namespace std;
@@ -320,26 +366,29 @@ int main() {
 
   // Tính số chia hết cho cả 3 và 5
   if ( a % 3 == 0 && a % 5 == 0) {
-  	cout << "Ket qua la: " << true << endl;
+   cout << "Ket qua la: " << true << endl;
   } else {
-  	cout << "Ket qua la: " << false << endl;
+   cout << "Ket qua la: " << false << endl;
   }
 
   return 0;
 }
 ```
+
 #### Bài 16. Kiểm tra năm nhuận
+
 Giải:
+
 ```c
 #include <iostream>
 using namespace std;
 
 int main() {
   int nam;
-	
+ 
   cout << "Nhap so nam:  ";
   cin >> nam;
-	
+ 
   if (nam <= 0) {
     cout << "INVALID";
   } else if ((nam % 400 == 0) || (nam % 4 == 0 && nam % 100 != 0)) {
@@ -351,47 +400,80 @@ int main() {
   return 0;
 }
 ```
+
 #### Bài 17. In ra số ngày của tháng
+
 Giải:
+
 ```c
 ```
+
 #### Bài 18. Kiểm tra chữ in thường
+
 Giải:
+
 ```c
 ```
+
 #### Bài 19. Kiểm tra in hoa
+
 Giải:
+
 ```c
 ```
+
 #### Bài 20. Kiểm tra chữ cái
+
 Giải:
+
 ```c
 ```
+
 #### Bài 21. Kiểm tra chữ số
+
 Giải:
+
 ```c
 ```
+
 #### Bài 22. Chuyển ký tự hoa thành thường
+
 Giải:
+
 ```c
 ```
+
 #### Bài 23. Chuyển kí tự thường thành kí tự hoa
+
 Giải:
+
 ```c
 ```
+
 #### Bài 24. Chữ cái kế tiếp
+
 Giải:
+
 ```c
 ```
+
 #### Bài 25. Tam giác hợp lệ
+
 Giải:
+
 ```c
 ```
+
 #### Bài 26. Kiểm tra tam giác
+
 Giải:
+
 ```c
 ```
+
 #### Bài 27. Chuyển đổi ngày sang tháng, năm, ngày
+
 Giải:
+
 ```c
 ```
