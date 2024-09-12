@@ -3,3 +3,4 @@
 ### Danh sách bài giải các buổi
 [Buổi 1](./buoi_1.md)  
 [Buổi 2](./buoi_2.md)
+[Buổi 3](./buoi_3.md)
