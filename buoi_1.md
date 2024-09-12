@@ -702,4 +702,200 @@ int main() {
 Giải:
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a;
+
+  cout << "Nhap so ngay: ";
+  cin >> a;
+
+  int nam = a / 365;
+  int du = a % 365;
+  int tuan = du / 7;
+  int ngay = du % 7;
+
+  cout << nam << " " << tuan << " " << ngay << " " << endl;
+
+  return 0;
+}
+```
+
+#### Bài 28. Phương trình bậc 2
+
+Giải:
+
+```c
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+    double a, b, c, delta, x1, x2;
+
+    // Nhập hệ số a, b, c
+    cin >> a >> b >> c;
+
+    // Kiểm tra trường hợp a = 0
+    if (a == 0) {
+        // Nếu b = 0 và c = 0, phương trình có vô số nghiệm
+        if (b == 0 && c == 0) {
+            cout << "INF";
+        } 
+        // Nếu b = 0 và c != 0, phương trình vô nghiệm
+        else if (b == 0 && c != 0) {
+            cout << "NO";
+        }
+        // Nếu b != 0, phương trình bậc nhất có 1 nghiệm
+        else {
+            cout << fixed << setprecision(2) << -c / b; 
+        }
+    } 
+    // Trường hợp a != 0
+    else {
+        // Tính delta
+        delta = b * b - 4 * a * c;
+
+        // Kiểm tra delta
+        if (delta < 0) {
+            cout << "NO";
+        } else if (delta == 0) {
+            x1 = -b / (2 * a);
+            cout << fixed << setprecision(2) << x1;
+        } else {
+            x1 = (-b + sqrt(delta)) / (2 * a);
+            x2 = (-b - sqrt(delta)) / (2 * a);
+            cout << fixed << setprecision(2) << x1 << " " << x2;
+        }
+    }
+
+    return 0;
+}
+```
+
+#### Bài 29. Số thuộc đoạn
+
+Giải:
+
+```c
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+  float a, b;
+
+  // Nhập đoạn [a, b] từ người dùng
+  cin >> a >> b;
+
+  // Tính số lượng số nguyên trong đoạn [a, b]
+  int soLuongSoNguyen = floor(b) - ceil(a) + 1;
+
+  // Hiển thị kết quả
+  cout << soLuongSoNguyen << endl;
+
+  return 0;
+}
+```
+
+#### Bài 30. Phép chia
+
+Giải:
+
+```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int a, b, c;
+
+  // Nhập ba số nguyên 64 bit a, b, c
+  cin >> a >> b >> c;
+
+  // Kiểm tra điều kiện và in kết quả
+  if ((a / b == c) || (b / c == a) || (c / a == b)) {
+    cout << "/" << endl;
+  } else {
+    cout << "NOSOL" << endl;
+  }
+
+  return 0;
+}
+```
+
+#### Bài 31. Kết quả học tập
+
+Giải:
+
+```c
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main() {
+  float diem1, diem2, diem3, diem4, diemTongKet;
+
+  // Nhập điểm từ người dùng
+  cin >> diem1 >> diem2 >> diem3 >> diem4;
+
+  // Tính điểm tổng kết
+  diemTongKet = (diem1 + diem2 + diem3 * 2 + diem4 * 3) / 7;
+
+  // Xác định và in kết quả học tập
+  cout << "Diem tong ket: " << fixed << setprecision(1) << diemTongKet << endl; 
+  cout << "Ket qua hoc tap: ";
+  if (diemTongKet >= 8) {
+    cout << "Gioi";
+  } else if (diemTongKet >= 6.5) {
+    cout << "Kha";
+  } else if (diemTongKet >= 5) {
+    cout << "Trung Binh";
+  } else {
+    cout << "Yeu";
+  }
+  cout << endl;
+
+  return 0;
+}
+```
+
+#### Bài 32. Số nhỏ thứ 2
+
+Giải:
+
+```c
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+  int a, b, c, d, e;
+
+  // Nhập năm số nguyên 64 bit
+  cin >> a >> b >> c >> d >> e;
+
+  // Tìm số nhỏ thứ nhì
+  int min1 = min({a, b, c, d, e}); // Tìm số nhỏ nhất
+  int min2 = 1e18; // Khởi tạo số nhỏ thứ nhì với giá trị rất lớn
+
+  // Duyệt qua 5 số để tìm số nhỏ thứ nhì
+  if (a > min1 && a < min2) min2 = a;
+  if (b > min1 && b < min2) min2 = b;
+  if (c > min1 && c < min2) min2 = c;
+  if (d > min1 && d < min2) min2 = d;
+  if (e > min1 && e < min2) min2 = e;
+
+  // In ra số nhỏ thứ nhì
+  cout << min2 << endl;
+
+  return 0;
+}
 ```
