@@ -1,6 +1,23 @@
 #### Bài 1
 
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int n, sum;
+
+  cout << "Enter a number: ";
+  cin >> n;
+  
+  for (int i = 1; i <= n; ++i) {
+    sum += i;
+  }
+  
+  cout << "Sum = " << sum << endl;
+
+  return 0;
+}
 ```
 
 #### Bài 2
@@ -16,6 +33,24 @@
 #### Bài 4
 
 ```c
+#include <iostream>
+using namespace std;
+
+int main() {
+  int n;
+  float sum;
+
+  cout << "Enter a number: ";
+  cin >> n;
+  
+  for (int i = 1; i <= n; ++i) {
+    sum += 1 / (float)i;
+  }
+
+  cout << "Sum = " << sum << endl;
+
+  return 0;
+}
 ```
 
 #### Bài 5
