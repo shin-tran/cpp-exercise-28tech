@@ -3,17 +3,25 @@
 using namespace std;
 
 int main() {
-  long long n;
-  int sum = 0;
+  int n, countChan = 0, countLe = 0;
 
   cin >> n;
 
   while (n > 0) {
-    sum += n % 10;
-    n /= 10;
+    int temp = n % 10; // lay chu so cuoi
+    if (temp % 2 == 0) {
+      countChan++;
+    } else {
+      countLe++;
+    }
+    n /= 10; // xoa chu so cuoi
   }
 
-  cout << sum << endl;
+  if (countChan == countLe) {
+    cout << "YES";
+  } else {
+    cout << "NO";
+  }
 
   return 0;
 }

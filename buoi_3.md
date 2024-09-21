@@ -305,21 +305,127 @@ int main() {
 #### Bài 14
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n, sumChan = 0, sumLe = 0;
+
+  cin >> n;
+
+  while (n > 0) {
+    int temp = n % 10; // lay chu so cuoi
+    if (temp % 2 == 0) {
+      sumChan += temp;
+    } else {
+      sumLe += temp;
+    }
+    n /= 10; // xoa chu so cuoi
+  }
+
+  cout << sumChan << " " << sumLe;
+
+  return 0;
+}
 ```
 
 #### Bài 15
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n, countChan = 0, countLe = 0;
+
+  cin >> n;
+
+  while (n > 0) {
+    int temp = n % 10; // lay chu so cuoi
+    if (temp % 2 == 0) {
+      countChan++;
+    } else {
+      countLe++;
+    }
+    n /= 10; // xoa chu so cuoi
+  }
+
+  cout << countChan << " " << countLe;
+
+  return 0;
+}
 ```
 
 #### Bài 16
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+bool isPrime(int num) {
+  if (num <= 1) return false;
+  if (num == 2 || num == 3) return true;
+  if (num % 2 == 0 || num % 3 == 0) return false;
+  for (int i = 5; i * i <= num; i += 6) {
+    if (num % i == 0 || num % (i + 2) == 0) return false;
+  }
+  return true;
+}
+
+int main() {
+  int n, countPrime = 0, countNonPrime = 0;
+
+  cin >> n;
+
+  while (n > 0) {
+    int temp = n % 10; // lay chu so cuoi
+    if (isPrime(temp)) {
+      countPrime++;
+    } else {
+      countNonPrime++;
+    }
+    n /= 10; // xoa chu so cuoi
+  }
+
+  cout << countPrime << " " << countNonPrime;
+
+  return 0;
+}
 ```
 
 #### Bài 17
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n, countChan = 0, countLe = 0;
+
+  cin >> n;
+
+  while (n > 0) {
+    int temp = n % 10; // lay chu so cuoi
+    if (temp % 2 == 0) {
+      countChan++;
+    } else {
+      countLe++;
+    }
+    n /= 10; // xoa chu so cuoi
+  }
+
+  if (countChan == countLe) {
+    cout << "YES";
+  } else {
+    cout << "NO";
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 18
