@@ -1,27 +1,29 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
-  int n, countChan = 0, countLe = 0;
+  int n, m, sumPrime = 0;
 
-  cin >> n;
-
-  while (n > 0) {
-    int temp = n % 10; // lay chu so cuoi
-    if (temp % 2 == 0) {
-      countChan++;
-    } else {
-      countLe++;
-    }
-    n /= 10; // xoa chu so cuoi
-  }
-
-  if (countChan == countLe) {
-    cout << "YES";
+  cin >> m >> n;
+  
+  for (int i = m; i <= n; ++i) {
+    bool laSoNguyenTo = true;
+    if (i <= 1) {
+    laSoNguyenTo = false;
   } else {
-    cout << "NO";
+      for (int j = 2; j <= i / 2; ++j) {
+        if (i % j == 0) {
+          laSoNguyenTo = false;
+          break;
+        }
+      }
+    }
+    if (laSoNguyenTo) {
+      sumPrime += i;
+    }
   }
+
+  cout << sumPrime;
 
   return 0;
 }
