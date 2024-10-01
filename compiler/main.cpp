@@ -1,29 +1,25 @@
 #include <iostream>
+
 using namespace std;
 
 int main() {
-  int n, m, sumPrime = 0;
+  int start;
+  cin >> start;
+  if (start < 2 || start > 92) {
+    cout << "Dau vao khong hop le.";
+    return 1;
+  }
+  long long a = 0, b = 1; 
 
-  cin >> m >> n;
-  
-  for (int i = m; i <= n; ++i) {
-    bool laSoNguyenTo = true;
+  for (int i = 0; i < start; i++) {
     if (i <= 1) {
-    laSoNguyenTo = false;
-  } else {
-      for (int j = 2; j <= i / 2; ++j) {
-        if (i % j == 0) {
-          laSoNguyenTo = false;
-          break;
-        }
-      }
-    }
-    if (laSoNguyenTo) {
-      sumPrime += i;
+      cout << i << " "; 
+    } else {
+      long long c = a + b;
+      cout << c << " ";
+      a = b;
+      b = c;
     }
   }
-
-  cout << sumPrime;
-
   return 0;
 }
