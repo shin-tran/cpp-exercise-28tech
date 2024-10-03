@@ -138,8 +138,9 @@ bool isPrime(int n) {
   if (n <= 1) return false; // 0 and 1 are not prime numbers
   if (n <= 3) return true; // 2 and 3 are prime numbers
   if (n % 2 == 0 || n % 3 == 0) return false; // multiples of 2 and 3 are not prime numbers
-  for (int i = 5; i * i <= n; i += 6) { // prime numbers are in the form of 6k +/- 1
-    if (n % i == 0 || n % (i + 2) == 0) return false; // multiples of i and i + 2 are not prime numbers
+  for (int i = 5; i * i <= n; i += 6) { // prime numbers are in the form of 6k +- 1
+    if (n % i == 0 || n % (i + 2) == 0) return false; // prime numbers not divisible by 6k +- 1 
+    //i is 6k - 1 and i + 2 is 6k + 1
   }
   return true;
 }
