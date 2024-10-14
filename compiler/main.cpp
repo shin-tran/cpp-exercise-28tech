@@ -3,14 +3,17 @@
 using namespace std;
 
 int main() {
-  int n;
-  cin >> n;
-  int sum = 0;
-  while (n != 0) {
-    int temp = n % 10;
-    sum += temp;
-    n /= 10;
+  while (true) {
+    int i;
+    cout << "Hay nhap so nguyen duong (-1 de ket thuc): ";
+    cin >> i;
+    if (i <= 0 ) {
+      return 1;
+    } else {
+      for (int j = i; j != 0; j--) cout << "* ";
+    }
+    cout << endl;
   }
-  cout << sum << endl;
+
   return 0;
 }

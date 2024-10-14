@@ -154,11 +154,45 @@ int main() {
 #### Bài 7
 
 ```c
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    string n;
+    cin >> n;
+
+    int len = n.length();
+
+    if (len > 1) {
+        swap(n[0], n[len - 1]);
+    }
+    
+    if (n[0] == '0') {
+      n.erase(n.begin());
+    }
+
+    cout << n;
+    return 0;
+}
 ```
 
 #### Bài 8
 
 ```c
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int count = to_string(n).length();
+    cout << count;
+    return 0;
+}
 ```
 
 #### Bài 9
