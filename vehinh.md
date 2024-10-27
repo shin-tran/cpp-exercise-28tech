@@ -206,51 +206,237 @@ int main() {
 #### Bài 10
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i <= h; i++) {
+    for (int j = 1; j <= h; j++) {
+      if (i == 1 || i == h || j == 1 || j == h || i == j || j == h - i + 1) cout << "*";
+      else cout << " ";
+    }
+    
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 11
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i <= h; i++) {
+    for (int j = 1; j <= h; j++) {
+      if (i == j || j == h - i + 1) cout << "*";
+      else cout << " ";
+    }
+    
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 12
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i <= h; i++) {
+    for (int j = 1; j <= h * 2; j++) {
+      if (j <= i || j > h * 2 - i) cout << "*";
+      else cout << " ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 13
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i < h * 2; i++) {
+    for (int j = 1; j <= h * 2; j++) {
+      if (j <= h - i + 1 || j <= i - h + 1 || j >= h + i || j >= h * 3 - i) {
+        cout << "*";
+      } else cout << " ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 14
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i < h * 2; i++) {
+    for (int j = 1; j <= h; j++) {
+      if (j <= h - i + 1 || j <= i - h + 1) {
+        cout << "*";
+      } else cout << " ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 15
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i < h * 2; i++) {
+    for (int j = 1; j <= h; j++) {
+      if (i == 1 || i == h * 2 - 1 || j == 1 || j == h - i + 1 || j == i - h + 1) {
+        cout << "*";
+      } else cout << " ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 16
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i <= h; i++) {
+    for (int j = 1; j <= h; j++) {
+      cout << i;
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 17
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i <= h; i++) {
+    for (int j = i; j < i + h; j++) {
+      cout << j;
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 18
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i <= h; i++) {
+    int num = i; int gap = h;
+    for (int j = 1; j <= h; j++) {
+      if (j <= i) {
+        cout << num << " ";
+        num += gap; gap--;
+      }
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 19
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int h;
+  cin >> h;
+
+  for (int i = 1; i < h * 2; i++) {
+    for (int j = 1; j < h * 2; j++) {
+      int num = h - min(min(i - 1, j - 1), min((h * 2 - 1) - i, (h * 2 - 1) - j));
+      cout << num << " ";
+    }
+    cout << endl;
+  }
+
+  return 0;
+}
 ```
 
 #### Bài 21
