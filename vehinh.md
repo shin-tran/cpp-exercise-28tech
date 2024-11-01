@@ -439,47 +439,217 @@ int main() {
 }
 ```
 
+#### Bài 20
+
+```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 5;
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = i; j <= n + i - 1; j++) {
+      if (j <= 5) cout << j << " ";
+      else cout << "5 ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
+```
+
 #### Bài 21
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 5;
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n - i; j++) cout << "~";
+    int num = 2;
+    for (int j = 1; j < 2 * i; j++) {
+      if (j < i) {
+        cout << num; num += 2;
+      }
+      else {
+        cout << num; num -= 2;
+      }
+    }
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 #### Bài 22
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 5, num = 1, count = 0;
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= i; j++) {
+      num += count;
+      cout << num << " ";
+      count++;
+    }
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 #### Bài 23
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 5;
+  char kyTu = 'A';
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n; j++) {
+      cout << kyTu;
+    }
+    kyTu++;
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 #### Bài 24
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 5;
+  char kyTu = 'A';
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 0; j < n; j++) {
+      char inKyTu = kyTu + j;
+      cout << inKyTu;
+    }
+    kyTu++;
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 #### Bài 25
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 5;
+  char kyTu = 'A';
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= i; j++) {
+      cout << kyTu << " ";
+      kyTu++;
+    }
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 #### Bài 26
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 5;
+  char kyTu = 'A';
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 0; j < n;j++) {
+      if (i % 2 == 0) {
+        char kyTuThuong = kyTu + 32 + j;
+        cout << kyTuThuong << " ";
+      }
+      else {
+        char kyTuHoa = kyTu + j;
+        cout << kyTuHoa << " ";
+      }
+    }
+    kyTu++;
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 #### Bài 27
 
 ```c
+#include <iostream>
+
+using namespace std;
+
+int main() {
+  int n = 5;
+
+  for (int i = 1; i <= n; i++) {
+    char kyTu = 'A';
+    for (int j = 1; j < i * 2;j++) {
+      if (j < i) {
+        cout << kyTu;
+        kyTu += 2;
+      } else {
+        cout << kyTu;
+        kyTu -= 2;
+      }
+    }
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 #### Bài 28
 
 ```c
-```
+#include <iostream>
 
-#### Bài 29
+using namespace std;
 
-```c
+int main() {
+  int n = 5;
+  char kyTu = 'a';
+
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= i; j++) {
+      cout << kyTu << " ";
+      kyTu++;
+    }
+    cout << endl;
+  }
+  return 0;
+}
 ```
