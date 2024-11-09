@@ -4,27 +4,69 @@ using namespace std;
 
 #define ll long long
 
-const int maxInt = (int)1e6;
-vector<int> prime(maxInt + 1);
-
-void sieve() {
-  for (int i = 0; i <= maxInt; i++) prime[i] = 1;
-  prime[0] = prime[1] = 0;
-  for (int i = 2; i <= sqrt(maxInt); i++) {
-    if (prime[i]) {
-      for (int j = i * i; j <= maxInt; j += i) prime[j] = 0;
+void pt1(int n) {
+  for (int i = 2; i <= sqrt(n); i++) {
+    while (n % i == 0) {
+      cout << i << " ";
+      n /= i;
     }
   }
+  if (n != 1) cout << n;
+}
+
+void pt2(int n) {
+  for (int i = 2; i <= sqrt(n); i++) {
+    if (n % i == 0) {
+      cout << i << " ";
+      while (n % i == 0) {
+        n /= i;
+      }
+    }
+  }
+  if (n != 1) cout << n;
+}
+
+void pt3(int n) {
+  for (int i = 2; i <= sqrt(n); i++) {
+    if (n % i == 0) {
+      int count = 0;
+      while (n % i == 0) {
+        count++;
+        n /= i;
+      }
+      cout << i << "(" << count << ") ";
+    }
+  }
+  if (n != 1) cout << n << "(1)";
+}
+
+void pt4(int n) {
+  for (int i = 2; i <= sqrt(n); i++) {
+    while (n % i == 0) {
+      cout << i;
+      n /= i;
+      if (n != 1) cout << "x";
+    }
+  }
+  if (n != 1) cout << n;
+}
+
+void pt5(int n) {
+  cout << n << " = ";
+  for (int i = 2; i <= sqrt(n); i++) {
+    if (n % i == 0) {
+      int cnt = 0;
+      while (n % i == 0) {
+        cnt++;
+        n /= i;
+      }
+      cout << i << "^" << cnt << " * ";
+    }
+  }
+  if (n != 1) cout << n << "^1";
 }
 
 int main() {
-  sieve();
-  int t; cin >> t;
-  while (t--) {
-    int n; cin >> n;
-    for (int i = 1; i <= n / 2; i++) {
-      if (prime[i] && prime[n - i]) cout << i << " " << n - i << endl;
-    }
-  }
-  return 0;
+  int n; cin >> n;
+  pt5(n);
 }
