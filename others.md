@@ -2,6 +2,48 @@
 #### 
 
 ```c
+
+```
+
+#### Ước số nguyên tố nhỏ nhất
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long
+
+const ll maxint = 1e6;
+
+vector<ll> prime(maxint + 1);
+
+void sieve() {
+  for (int i = 1; i <= maxint; i++) prime[i] = i;
+  for (int i = 2; i <= sqrt(maxint); i++) {
+    if (prime[i] == i) {
+      for (int j = i * i; j <= maxint; j += i) {
+        if (prime[j] == j) prime[j] = i;
+      }
+    }
+  }
+}
+
+int solve(int n) {
+  if (n == 1) return 1;
+  for (int i = 2; i <= sqrt(n); i++) {
+    if (n % i == 0) return i;
+  }
+  return n;
+}
+
+int main() {
+  sieve();
+  int n; cin >> n;
+  for (int i = 1; i <= n; i++) {
+    cout << prime[i] << " ";
+  }
+}
 ```
 
 #### Phân tích thừa số nguyên tố
@@ -308,6 +350,82 @@ int main() {
     if (prime[i]) cout << 1ll * i * i << " ";
   }
   return 0;
+}
+```
+
+#### T prime 2
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long
+
+const ll maxint = 1e6;
+
+vector<ll> prime(maxint + 1);
+
+void sieve() {
+  for (int i = 0; i <= maxint; i++) prime[i] = 1;
+  prime[0] = prime[1] = 0;
+  for (int i = 2; i <= sqrt(maxint); i++) {
+    if (prime[i]) {
+      for (int j = i * i; j <= maxint; j += i) prime[j] = 0;
+    }
+  }
+}
+
+int main() {
+  sieve();
+  int t; cin >> t;
+  while (t--) {
+    ll n; cin >> n;
+    int cnt = 0;
+    for (int i = 1; i <= sqrt(n); i++) {
+      if (prime[i]) cnt++;
+    }
+    cout << cnt << endl;
+  }
+}
+```
+
+#### T prime 3
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define ll long long
+
+const ll maxint = 1e6;
+
+vector<ll> prime(maxint + 1);
+
+void sieve() {
+  for (int i = 0; i <= maxint; i++) prime[i] = 1;
+  prime[0] = prime[1] = 0;
+  for (int i = 2; i <= sqrt(maxint); i++) {
+    if (prime[i]) {
+      for (int j = i * i; j <= maxint; j += i) prime[j] = 0;
+    }
+  }
+}
+
+int main() {
+  sieve();
+  int t; cin >> t;
+  while (t--) {
+    ll l, r; cin >> l >> r;
+    int cnt = 0;
+    int a = sqrt(l);
+    if (1ll * a * a != l) ++a;
+    for (int i = a; i <= sqrt(r); i++) {
+      if (prime[i]) cnt++;
+    }
+    cout << cnt << endl;
+  }
 }
 ```
 

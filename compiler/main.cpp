@@ -1,72 +1,48 @@
 #include <bits/stdc++.h>
 
 using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
 
-#define ll long long
-
-void pt1(int n) {
-  for (int i = 2; i <= sqrt(n); i++) {
-    while (n % i == 0) {
-      cout << i << " ";
-      n /= i;
-    }
-  }
-  if (n != 1) cout << n;
+int fibo(int n) {
+  if (n == 0 || n == 1) return 1;
+  else return fibo(n - 1) + fibo(n - 2);
 }
 
-void pt2(int n) {
-  for (int i = 2; i <= sqrt(n); i++) {
-    if (n % i == 0) {
-      cout << i << " ";
-      while (n % i == 0) {
-        n /= i;
-      }
-    }
-  }
-  if (n != 1) cout << n;
+int gcd(int a, int b) {
+  if (b == 0) return a;
+  else return gcd(b, a % b);
 }
 
-void pt3(int n) {
-  for (int i = 2; i <= sqrt(n); i++) {
-    if (n % i == 0) {
-      int count = 0;
-      while (n % i == 0) {
-        count++;
-        n /= i;
-      }
-      cout << i << "(" << count << ") ";
-    }
-  }
-  if (n != 1) cout << n << "(1)";
+int tohop(int n, int k) {
+  if (k == 0 || k == n) return 1;
+  else return tohop(n - 1, k - 1) + tohop(n - 1, k);
 }
 
-void pt4(int n) {
-  for (int i = 2; i <= sqrt(n); i++) {
-    while (n % i == 0) {
-      cout << i;
-      n /= i;
-      if (n != 1) cout << "x";
-    }
-  }
-  if (n != 1) cout << n;
-}
-
-void pt5(int n) {
-  cout << n << " = ";
-  for (int i = 2; i <= sqrt(n); i++) {
-    if (n % i == 0) {
-      int cnt = 0;
-      while (n % i == 0) {
-        cnt++;
-        n /= i;
-      }
-      cout << i << "^" << cnt << " * ";
-    }
-  }
-  if (n != 1) cout << n << "^1";
+int pow(int a, int b) {
+  if (b == 0) return 1;
+  int tmp = pow(a, b / 2);
+  if (b % 2 == 1) return tmp * tmp * a;
+  else return tmp * tmp;
 }
 
 int main() {
-  int n; cin >> n;
-  pt5(n);
+  faster();
+  int n, k; cin >> n >> k;
+  vector<int> a(n);
+  for (int &x : a) cin >> x;
+  ll sum = 0;
+  for (int i = 0; i < k; i++) sum += a[i];
+  ll res = sum, pos = 0;
+  for (int i = 1; i <= n - k; i++) {
+    sum = sum - a[i-1] + a[i+k-1];
+    if (sum >= res) {
+      res = sum; pos = i;
+    }
+  }
+  cout << res << endl;
+  for (int i = 0; i < k; i++) {
+    cout << a[pos + i] << " ";
+  }
+  return 0;
 }
