@@ -1,4 +1,4 @@
-# Trợ giảng buổi 12 54:40| Chính buổi 11 37:54
+# Trợ giảng buổi 12 54:40 | Chính buổi 11 37:54
 
 ## Tính tổng 1
 
