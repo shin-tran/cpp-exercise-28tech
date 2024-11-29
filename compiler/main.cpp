@@ -4,22 +4,19 @@ using namespace std;
 #define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 typedef long long ll;
 
-const int mod = 1e9 + 7;
-
-ll du(int a, int b) {
-  return ((a % mod) * (b % mod)) % mod;
+int fmax(ll n) {
+  if (n < 10) return n;
+  else return max(n % 10, 1ll * fmax(n / 10));
 }
 
-ll binpow(int a, int b) {
-  if ( b == 0) return 1;
-  ll res = binpow(a, b / 2);
-  if (b % 2) return du(du(res, res), a);
-  else return du(res, res);
+int fmin(ll n) {
+  if (n < 10) return n;
+  else return min(n % 10, 1ll * fmin(n / 10));
 }
 
 int main() {
   faster();
-  int a, b; cin >> a >> b;
-  cout << binpow(a, b);
+  ll n; cin >> n;
+  cout << fmax(n) << " " << fmin(n);
   return 0;
 }
