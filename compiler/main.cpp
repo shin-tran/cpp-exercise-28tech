@@ -7,13 +7,19 @@ typedef long long ll;
 int main() {
   faster();
   int n; cin >> n;
-  map<ll, int> mp;
+  int a[n];
   for (int i = 0; i < n; i++) {
-    int x; cin >> x;
-    mp[x]++;
+    cin >> a[i];
   }
-  for (map<ll, int>::iterator it = mp.begin(); it != mp.end(); it++) {
-    cout << it->first << " " << it->second << endl;
+  int cnt[n+1]; set<int> se;
+  for (int i = n - 1; i >= 0; i--) {
+    se.insert(a[i]);
+    cnt[i] = se.size();
+  }
+  int q; cin >> q;
+  while (q--) {
+    int l; cin >> l;
+    cout << cnt[l] << " ";
   }
   return 0;
 }

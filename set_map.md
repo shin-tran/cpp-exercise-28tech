@@ -1,4 +1,4 @@
-# Set and Map | Phụ 14 | Chính 12 42:12
+# Set and Map
 
 ## Phần tử phân biệt
 
@@ -357,10 +357,64 @@ int main() {
 ## Suffix And Query
 
 ```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n];
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+  int cnt[n+1]; set<int> se;
+  for (int i = n - 1; i >= 0; i--) {
+    se.insert(a[i]);
+    cnt[i] = se.size();
+  }
+  int q; cin >> q;
+  while (q--) {
+    int l; cin >> l;
+    cout << cnt[l] << " ";
+  }
+  return 0;
+}
+```
+
+## Set vs Lower_bound, Upper_bound
+
+```c
 
 ```
 
-##
+## Tìm kiếm sinh viên
+
+```c
+
+```
+
+## Truy vấn kí tự
+
+```c
+
+```
+
+## Số lượng từ khác nhau trong xâu
+
+```c
+
+```
+
+## Thi đấu
+
+```c
+
+```
+
+## Điểm trung bình
 
 ```c
 
