@@ -365,34 +365,181 @@ int main() {
 
 ```
 
-##
+## Điền số còn thiếu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n];
+  for (int &x : a) cin >> x;
+  int min = 1e9, max = -1e9;
+  for (int x : a) {
+    if (x > max) max = x;
+    if (x < min) min = x;
+  }
+  int ans = max - min - n + 1;
+  cout << ans;
+  return 0;
+}
 ```
 
-##
+## Sắp xếp chữ số
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  set<char> se;
+  for (int i = 0; i < n; i++) {
+    string x; cin >> x;
+    for (string::size_type j = 0; j < x.size(); j++) {
+      se.insert(x[i]);
+    }
+  }
+  for (char x : se) cout << x << " ";
+  return 0;
+}
 ```
 
-##
+## Biểu thức nhỏ nhất
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, k; cin >> n >> k;
+  int a[n];
+  for (int &x : a) cin >> x;
+  sort(a + 1, a + n, greater<int>());
+  ll res = a[0];
+  for (int i = 1; i < n; i++) {
+    if (i <= k) res += a[i];
+    else res -= a[i];
+  }
+  cout << res;
+  return 0;
+}
 ```
 
-##
+## Check in sân bay
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  vector<pair<int, int>> v(n);
+  for (auto &it : v) cin >> it.first >> it.second;
+  sort(v.begin(), v.end());
+  ll time = 0;
+  for (int i = 0; i < n; i++) {
+    time = max(1ll * v[i].first, time) + v[i].second;
+  }
+  cout << time;
+  return 0;
+}
 ```
 
-##
+## Sắp đặt số 0
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+bool cmp(const pair<int, int>& a, const pair<int, int>& b) {
+  return a.second < b.second;
+}
+
+int main() {
+  faster();
+  int n, cnt = 0; cin >> n;
+  vector<pair<int, int>> mp;
+  for (int i = 0; i < n; i++) {
+    int x; cin >> x;
+    if (x == 0) {
+      ++cnt;
+    } else mp.push_back({x, i});
+  }
+  sort(mp.begin(), mp.end(), cmp);
+  for (auto it : mp) cout << it.first << " ";
+  for (int i = 0; i < cnt; i++) cout << 0 << " ";
+  return 0;
+}
+```
+
+## Sắp xếp theo tần suất
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+bool cmp(const pair<int, int>& a, const pair<int, int>& b) {
+  if (a.second != b.second) return a.second > b.second;
+  return a.first < b.first;
+}
+
+bool cmp2(const pair<int, int>& a, const pair<int, int>& b) {
+  return a.second > b.second;
+}
+
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n];
+  map<int, int> mp;
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+    mp[a[i]]++;
+  }
+  vector<pair<int, int>> v;
+  vector<pair<int, int>> v2;
+  for (int i = 0; i < n; i++) {
+    v.push_back({a[i], mp[a[i]]});
+    v2.push_back({a[i], mp[a[i]]});
+  }
+  sort(v.begin(), v.end(), cmp);
+  for (auto it : v) {
+    cout << it.first << " ";
+  }
+  cout << endl;
+  stable_sort(v2.begin(), v2.end(), cmp2);
+  for (auto it : v2) {
+    while (mp[it.first] != 0) {
+      cout << it.first << " ";
+      mp[it.first]--;
+    }
+  }
+  return 0;
+}
 ```
 
 ##
