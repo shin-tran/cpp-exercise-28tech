@@ -1,4 +1,4 @@
-# Sort and search | Phụ 14 2:01:00 | Chính 13
+# Sort and search | Phụ 15 | Chính 13 1:18:30
 
 ## Các số khác nhau trong mảng
 
@@ -174,15 +174,12 @@ typedef long long ll;
 int main() {
   faster();
   int n; cin >> n;
-  map<int, int> mp;
-  for (int i = 0; i < n; i++) {
-    int x; cin >> x;
-    mp[x]++;
-  }
+  int a[n];
+  for (int &x : a) cin >> x;
   int q; cin >> q;
   while (q--) {
     int x; cin >> x;
-    if (mp.count(x)) cout << "YES\n";
+    if (binary_search(a, a + n, x)) cout << "YES\n";
     else cout << "NO\n";
   }
   return 0;
@@ -192,7 +189,84 @@ int main() {
 ## Tìm kiếm nhị phân biến đổi
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int firstPos(int a[], int n, int x) {
+  int res = -1;
+  int left = 0, right = n - 1;
+  while (left <= right) {
+    int mid = (left + right) / 2;
+    if (a[mid] == x) {
+      res = mid;
+      right = mid - 1;
+    }
+    else if (a[mid] < x) left = mid + 1;
+    else right = mid - 1;
+  }
+  return res;
+}
+
+int lastPos(int a[], int n, int x) {
+  int res = -1;
+  int left = 0, right = n - 1;
+  while (left <= right) {
+    int mid = (left + right) / 2;
+    if (a[mid] == x) {
+      res = mid;
+      left = mid + 1;
+    }
+    else if (a[mid] < x) left = mid + 1;
+    else right = mid - 1;
+  }
+  return res;
+}
+
+int lowerPos(int a[], int n, int x) {
+  int res = -1;
+  int left = 0, right = n - 1;
+  while (left <= right) {
+    int mid = (left + right) / 2;
+    if (a[mid] >= x) {
+      res = mid;
+      right = mid - 1;
+    }
+    else left = mid + 1;
+  }
+  return res;
+}
+
+int upperPos(int a[], int n, int x) {
+  int res = -1;
+  int left = 0, right = n - 1;
+  while (left <= right) {
+    int mid = (left + right) / 2;
+    if (a[mid] > x) {
+      res = mid;
+      right = mid - 1;
+    }
+    else left = mid + 1;
+  }
+  return res;
+}
+
+int main() {
+  faster();
+  int n, x; cin >> n >> x;
+  int a[n];
+  for (int &x : a) cin >> x;
+  int l = firstPos(a, n, x), r = lastPos(a, n, x);
+  cout << l << endl;
+  cout << r << endl;
+  cout << lowerPos(a, n, x) << endl;
+  cout << upperPos(a, n, x) << endl;
+  if (l != -1) cout << r - l + 1;
+  else cout << 0;
+  return 0;
+}
 ```
 
 ## Trộn 2 dãy
