@@ -1,4 +1,4 @@
-# Sort and search | Phụ 15 | Chính 13 1:18:30
+# Sort and search | Phụ 15 1:00:00 | Chính 14
 
 ## Các số khác nhau trong mảng
 
@@ -436,6 +436,66 @@ int main() {
 ## Cặp số có tổng bằng K
 
 ```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int firstPos(int a[],int i, int n, int x) {
+  int res = -1, left = i + 1, right = n - 1;
+  x -= a[i];
+  while (left <= right) {
+    int mid = (left + right) / 2;
+    if (a[mid] == x) {
+      res = mid;
+      right = mid - 1;
+    }
+    else if (a[mid] < x) left = mid + 1;
+    else right = mid - 1;
+  }
+  return res;
+}
+
+int lastPos (int a[],int i, int n, int x) {
+  int res = -1, left = i + 1, right = n - 1;
+  x -= a[i];
+  while (left <= right) {
+    int mid = (left + right) / 2;
+    if (a[mid] == x) {
+      res = mid;
+      left = mid + 1;
+    } else if (a[mid] < x) left = mid + 1;
+    else right = mid - 1;
+  }
+  return res;
+}
+
+int main() {
+  faster();
+  int n, k; cin >> n >> k;
+  int a[n];
+  for (int &x : a) cin >> x;
+  sort(a, a + n);
+  ll ans = 0;
+  for (int i = 0; i < n - 1; i++) {
+    int l = firstPos(a, i, n, k), r = lastPos(a, i, n, k);
+    if (l != -1) ans += r - l + 1;
+  }
+  cout << ans;
+  return 0;
+}
+```
+
+## Cặp số có tổng nhỏ hơn K
+
+```c
+
+```
+
+## Cặp số có tổng lớn hơn k
+
+```c
 
 ```
 
@@ -484,55 +544,6 @@ int main() {
     }
   }
   for (char x : se) cout << x << " ";
-  return 0;
-}
-```
-
-## Biểu thức nhỏ nhất
-
-```c
-#include <bits/stdc++.h>
-
-using namespace std;
-#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-typedef long long ll;
-
-int main() {
-  faster();
-  int n, k; cin >> n >> k;
-  int a[n];
-  for (int &x : a) cin >> x;
-  sort(a + 1, a + n, greater<int>());
-  ll res = a[0];
-  for (int i = 1; i < n; i++) {
-    if (i <= k) res += a[i];
-    else res -= a[i];
-  }
-  cout << res;
-  return 0;
-}
-```
-
-## Check in sân bay
-
-```c
-#include <bits/stdc++.h>
-
-using namespace std;
-#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-typedef long long ll;
-
-int main() {
-  faster();
-  int n; cin >> n;
-  vector<pair<int, int>> v(n);
-  for (auto &it : v) cin >> it.first >> it.second;
-  sort(v.begin(), v.end());
-  ll time = 0;
-  for (int i = 0; i < n; i++) {
-    time = max(1ll * v[i].first, time) + v[i].second;
-  }
-  cout << time;
   return 0;
 }
 ```
@@ -616,7 +627,116 @@ int main() {
 }
 ```
 
-##
+## Biểu thức nhỏ nhất
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, k; cin >> n >> k;
+  int a[n];
+  for (int &x : a) cin >> x;
+  sort(a + 1, a + n, greater<int>());
+  ll res = a[0];
+  for (int i = 1; i < n; i++) {
+    if (i <= k) res += a[i];
+    else res -= a[i];
+  }
+  cout << res;
+  return 0;
+}
+```
+
+## Check in sân bay
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  vector<pair<int, int>> v(n);
+  for (auto &it : v) cin >> it.first >> it.second;
+  sort(v.begin(), v.end());
+  ll time = 0;
+  for (int i = 0; i < n; i++) {
+    time = max(1ll * v[i].first, time) + v[i].second;
+  }
+  cout << time;
+  return 0;
+}
+```
+
+## Sắp xếp chọn
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n];
+  for (int &x : a) cin >> x;
+  for (int i = 0; i < n - 1; i++) {
+    int m = a[i], pos = i;
+    for (int j = i + 1; j < n; j++) {
+      if (a[j] < m) {
+        m = a[j];
+        pos = j;
+      }
+    }
+    swap(a[i], a[pos]);
+    cout << "Buoc " << i + 1 << ": ";
+    for (int x : a) cout << x << " ";
+    cout << endl;
+  }
+  return 0;
+}
+```
+
+## Sắp xếp chèn
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n];
+  for (int &x : a) cin >> x;
+  for (int i = 1; i < n; i++) {
+    int temp = a[i], j = i - 1;
+    while (j >= 0 && a[j] > temp) {
+      a[j + 1] = a[j];
+      j--;
+    }
+    a[j + 1] = temp;
+    cout << "Buoc " << i << ": ";
+    for (int x : a) cout << x << " ";
+    cout << endl;
+  }
+  return 0;
+}
+```
+
+## Sắp xếp nổi bọt
 
 ```c
 
@@ -629,6 +749,150 @@ int main() {
 ```
 
 ##
+
+```c
+
+```
+
+##
+
+```c
+
+```
+
+## Tìm kiếm cặp số có hiệu bằng X
+
+```c
+
+```
+
+## Số nhỏ nhất lớn hơn A[i]
+
+```c
+
+```
+
+## Đèn lồng
+
+```c
+
+```
+
+## Dragon
+
+```c
+
+```
+
+## BerSU Ball
+
+```c
+
+```
+
+## Distinct Number
+
+```c
+
+```
+
+## Căn hộ
+
+```c
+
+```
+
+## Xếp trẻ
+
+```c
+
+```
+
+## Hòa nhạc
+
+```c
+
+```
+
+## Cửa hàng bận rộn
+
+```c
+
+```
+
+## Liên hoan phim
+
+```c
+
+```
+
+## Missing Coin Sum
+
+```c
+
+```
+
+## Thu thập số
+
+```c
+
+```
+
+## Mảng con có tổng bằng X
+
+```c
+
+```
+
+## Đếm mảng con có tổng bằng x(2)
+
+```c
+
+```
+
+## Đếm mảng con chia hết cho K
+
+```c
+
+```
+
+## Đếm mảng con có nhiều nhất k số khác nhau
+
+```c
+
+```
+
+## Mảng con dài nhất mà mỗi phần tử chỉ xuất hiện 1 lần
+
+```c
+
+```
+
+## Chia mảng thành k mảng con liên tiếp có tổng lớn nhỏ nhất
+
+```c
+
+```
+
+## Factory machine
+
+```c
+
+```
+
+## Xếp hình domino
+
+```c
+
+```
+
+## Trò chơi cắt dây
+
+```c
+
+```
+
+## Máy photo
 
 ```c
 
