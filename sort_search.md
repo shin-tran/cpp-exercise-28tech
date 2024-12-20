@@ -1,4 +1,4 @@
-# Sort and search | Phụ 15 1:00:00 | Chính 14
+# Sort and search | Phụ 16 | Chính 14
 
 ## Các số khác nhau trong mảng
 
@@ -490,13 +490,77 @@ int main() {
 ## Cặp số có tổng nhỏ hơn K
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int lastPos(int a[], int i, int n, int x) {
+  int res = -1, l = i + 1, r = n - 1;
+  while (l <= r) {
+    int m = (l + r) / 2;
+    if (a[i] + a[m] < x) {
+      res = m;
+      l = m + 1;
+    } else r = m - 1;
+  }
+  return res;
+}
+
+int main() {
+  faster();
+  int n, k; cin >> n >> k;
+  int a[n];
+  for (int &x : a) cin >> x;
+  sort(a, a + n);
+  ll ans = 0;
+  for (int i = 0; i < n - 1; i++) {
+    int res = lastPos(a, i, n, k);
+    if (res == -1) break;
+    ans += res - i;
+  }
+  cout << ans;
+  return 0;
+}
 ```
 
 ## Cặp số có tổng lớn hơn k
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int lastPos(const vector<int>& a, int i, int n, int x) {
+  int res = -1, l = i + 1, r = n - 1;
+  while (l <= r) {
+    int m = (l + r) / 2;
+    if (a[i] + a[m] > x) {
+      res = m;
+      r = m - 1;
+    } else l = m + 1;
+  }
+  return res;
+}
+
+int main() {
+  faster();
+  int n, k; cin >> n >> k;
+  vector<int> a(n);
+  for (int &x : a) cin >> x;
+  sort(a.begin(), a.end());
+  ll ans = 0;
+  for (int i = 0; i < n - 1; i++) {
+    int res = lastPos(a, i, n, k);
+    if (res == -1) break;
+    ans += n - res;
+  }
+  cout << ans;
+  return 0;
+}
 ```
 
 ## Điền số còn thiếu
@@ -739,49 +803,156 @@ int main() {
 ## Sắp xếp nổi bọt
 
 ```c
+#include <bits/stdc++.h>
 
-```
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
 
-##
-
-```c
-
-```
-
-##
-
-```c
-
-```
-
-##
-
-```c
-
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n];
+  for (int &x : a) cin >> x;
+  bool check = true;
+  while (check) {
+    check = false;
+    for (int i = 0; i < n; i++) {
+      if (a[i] > a[i + 1]) {
+        check = true;
+        swap(a[i], a[i + 1]);
+      }
+    }
+    for (int x : a) cout << x << " ";
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 ## Tìm kiếm cặp số có hiệu bằng X
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int lastPos(const vector<int>& a, int i, int n, int x) {
+  int l = i + 1, r = n - 1;
+  while (l <= r) {
+    int m = (l + r) / 2;
+    if (a[m] - a[i] == x) {
+      return 1;
+    } else if (a[m] - a[i] < x) l = m + 1;
+    else r = m - 1;
+  }
+  return -1;
+}
+
+int main() {
+  faster();
+  int n, k; cin >> n >> k;
+  vector<int> a(n);
+  for (int &x : a) cin >> x;
+  sort(a.begin(), a.end());
+  int ans = 0;
+  for (int i = 0; i < n - 1; i++) {
+    int res = lastPos(a, i, n, k);
+    if (res == 1) {
+      ans = res;
+      break;
+    } else ans = res;
+  }
+  cout << ans;
+  return 0;
+}
 ```
 
 ## Số nhỏ nhất lớn hơn A[i]
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  vector<pair<int, int>> a(n);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i].first;
+    a[i].second = i;
+  }
+  vector<int> b(n);
+  sort(a.begin(), a.end());
+  int j = 0;
+  for (int i = 0; i < n; i++) {
+    while (j < n && a[j].first == a[i].first) j++;
+    if (j < n) b[a[i].second] = a[j].first;
+    else b[a[i].second] = -1;
+  }
+  for (int i = 0; i < n; i++) {
+    if (b[i] == -1) cout << "_ ";
+    else cout << b[i] << " ";
+  }
+  return 0;
+}
 ```
 
 ## Đèn lồng
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, l; cin >> n >> l;
+  vector<int> a(n);
+  for (int &x : a) cin >> x;
+  sort(a.begin(), a.end());
+  int res = 0;
+  for (int i = 1; i < n; i++) {
+    res = max(res,a[i] - a[i - 1]);
+  }
+  res = max(res, 2 * a[0]);
+  res = max(res, 2 * (l - a[n - 1]));
+  cout << setprecision(10) << fixed << (double)res / 2;
+  return 0;
+}
 ```
 
 ## Dragon
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, s; cin >> n >> s;
+  vector<pair<int, int>> a(n);
+  for (int i = 0; i < n; i++) cin >> a[i].first >> a[i].second;
+  sort(a.begin(), a.end());
+  for (int i = 0; i < n; i++) {
+    if (s <= a[i].first) {
+      cout << "NO";
+      return 0;
+    } else s += a[i].second;
+  }
+  cout << "YES";
+  return 0;
+}
 ```
 
 ## BerSU Ball
@@ -805,7 +976,40 @@ int main() {
 ## Xếp trẻ
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int lastPos(const vector<int>& a, int i, int n, int k) {
+  int res = -1, l = i + 1, r = n - 1;
+  while (l <= r) {
+    int m = (l + r) / 2;
+    if (a[m] <= k) {
+      res = m;
+      l = m + 1;
+    } else r = m - 1;
+  }
+  return res;
+}
+
+int main() {
+  faster();
+  int n, k; cin >> n >> k;
+  vector<int> a(n);
+  for (int x : a) cin >> x;
+  sort(a.begin(), a.end());
+  int tmp = n, c2 = 0;
+  for (int i = 0; i < n && a[i] <= k / 2; i++) {
+    int r = lastPos(a, i, tmp, k - a[i]);
+    tmp = r;
+    if (r != -1) c2++;
+  }
+  int c1 = n - c2 * 2;
+  cout << c1 + c2;
+  return 0;
+}
 ```
 
 ## Hòa nhạc
