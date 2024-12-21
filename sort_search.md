@@ -977,7 +977,8 @@ int main() {
     if (abs(a[i] - b[j]) <= 1) {
       ++ans;
       ++i; ++j;
-    } else ++i;
+    } else if (a[i] - b[j] > 0) ++j;
+    else ++i;
   }
   cout << ans;
   return 0;
