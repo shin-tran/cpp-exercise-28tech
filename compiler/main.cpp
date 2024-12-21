@@ -6,19 +6,18 @@ typedef long long ll;
 
 int main() {
   faster();
-  int n, k; cin >> n >> k;
-  vector<int> a(n);
+  int n, m; cin >> n >> m;
+  vector<int> a(n), b(m);
   for (int &x : a) cin >> x;
+  for (int &x : b) cin >> x;
   sort(a.begin(), a.end());
-  int ans = 0, l = 0, r = n - 1;
-  while (l <= r) {
-    if (a[l] + a[r] <= k) {
+  sort(b.begin(), b.end());
+  int ans = 0, i = 0, j = 0;
+  while (i < n && j < m) {
+    if (abs(a[i] - b[j]) <= 1) {
       ++ans;
-      ++l; --r;
-    } else {
-      ++ans;
-      --r;
-    }
+      ++i; ++j;
+    } else ++i;
   }
   cout << ans;
   return 0;
