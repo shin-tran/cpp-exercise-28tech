@@ -6,6 +6,6 @@ typedef long long ll;
 
 int main() {
   faster();
-  
+  //Chuoi anh em oiiiii
   return 0;
 }
