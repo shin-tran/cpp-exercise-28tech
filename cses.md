@@ -2,6 +2,8 @@
 
 ## Introductory Problems
 
+Phần "Introductory Problems" trong bộ bài tập CSES (CSES Problem Set) bao gồm các bài toán cơ bản nhằm giúp người học làm quen với các khái niệm và kỹ thuật lập trình cơ bản. Đây là phần khởi đầu tốt cho những ai mới bắt đầu học lập trình hoặc muốn ôn lại các kiến thức cơ bản.
+
 ### Weird Algorithm
 
 ```c
