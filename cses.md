@@ -1,6 +1,8 @@
 # Giải các bài toán CSES
 
-## Weird Algorithm
+## Introductory Problems
+
+### Weird Algorithm
 
 ```c
 #include <bits/stdc++.h>
@@ -27,13 +29,13 @@ int main() {
 }
 ```
 
-##
+### Missing Number
 
 ```c
 
 ```
 
-##
+###
 
 ```c
 
