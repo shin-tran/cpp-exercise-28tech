@@ -1106,7 +1106,31 @@ int main() {
 ## Cửa hàng bận rộn
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  vector<pair<int, int>> events;
+  for (int i = 0; i < n; i++) {
+    int arrive, leave;
+    cin >> arrive >> leave;
+    events.push_back({arrive, 1});
+    events.push_back({leave, -1});
+  }
+  sort(events.begin(), events.end());
+  int max_customers = 0, current_customers = 0;
+  for (auto event : events) {
+    current_customers += event.second;
+    max_customers = max(max_customers, current_customers);
+  }
+  cout << max_customers;
+  return 0;
+}
 ```
 
 ## Liên hoan phim
