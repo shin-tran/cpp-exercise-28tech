@@ -1,4 +1,4 @@
-# Sort and search | Phụ 16 04:07 | Chính 15
+# Sort and search | Phụ 16 47:07 | Chính 15
 
 ## Các số khác nhau trong mảng
 
@@ -1171,7 +1171,26 @@ int main() {
 ## Missing Coin Sum
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+#define endl '\n'
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  vector<int> coins(n);
+  for (int &x : coins) cin >> x;
+  sort(coins.begin(), coins.end());
+  ll sum = 1;
+  for (int i = 0; i < n && sum >= coins[i]; i++) {
+    sum += coins[i];
+  }
+  cout << sum;
+  return 0;
+}
 ```
 
 ## Thu thập số
