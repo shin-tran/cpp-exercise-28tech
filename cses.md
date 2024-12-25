@@ -34,7 +34,25 @@ int main() {
 ### Missing Number
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  ll n; cin >> n;
+  vector<ll> a(n - 1);
+  for (ll &x : a) cin >> x;
+  ll xor_all = 0;
+  for (ll i = 1; i <= n; i++) xor_all ^= i;
+  ll xor_array = 0;
+  for (ll x : a) xor_array ^= x;
+  ll missing_number = xor_all ^ xor_array;
+  cout << missing_number << endl;
+  return 0;
+}
 ```
 
 ###
