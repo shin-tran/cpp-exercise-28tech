@@ -1136,7 +1136,36 @@ int main() {
 ## Liên hoan phim
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+bool cmp(const pair<int, int>& a, const pair<int, int>& b) {
+  return a.second < b.second;
+}
+
+int main() {
+  faster();
+  int n; cin >> n;
+  vector<pair<int, int>> movies;
+  for (int i = 0; i < n; i++) {
+    int start, end;
+    cin >> start >> end;
+    movies.push_back({start, end});
+  }
+  sort(movies.begin(), movies.end(), cmp);
+  int ans = 0, last_end_time = 0; 
+  for (int i = 0; i < n; i++) {
+    if (movies[i].first >= last_end_time) {
+      ans++;
+      last_end_time = movies[i].second;
+    }
+  }
+  cout << ans;
+  return 0;
+}
 ```
 
 ## Missing Coin Sum
