@@ -1,4 +1,6 @@
-#### Bài 1
+# Buổi 5
+
+## Bài 1
 
 ```c
 #include <iostream>
@@ -31,7 +33,7 @@ int main() {
 }
 ```
 
-#### Bài 2
+## Bài 2
 
 ```c
 #include <iostream>
@@ -54,7 +56,7 @@ int main() {
 }
 ```
 
-#### Bài 3
+## Bài 3
 
 ```c
 #include <iostream>
@@ -75,7 +77,7 @@ int main() {
 }
 ```
 
-#### Bài 4
+## Bài 4
 
 ```c
 #include <iostream>
@@ -103,7 +105,7 @@ int main() {
 }
 ```
 
-#### Bài 5
+## Bài 5
 
 ```c
 #include <iostream>
@@ -122,7 +124,7 @@ int main() {
 }
 ```
 
-#### Bài 6
+## Bài 6
 
 ```c
 #include <iostream>
@@ -151,7 +153,7 @@ int main() {
 }
 ```
 
-#### Bài 7
+## Bài 7
 
 ```c
 #include <iostream>
@@ -178,7 +180,7 @@ int main() {
 }
 ```
 
-#### Bài 8
+## Bài 8
 
 ```c
 #include <iostream>
@@ -195,62 +197,62 @@ int main() {
 }
 ```
 
-#### Bài 9
+## Bài 9
 
 ```c
 ```
 
-#### Bài 10
+## Bài 10
 
 ```c
 ```
 
-#### Bài 11
+## Bài 11
 
 ```c
 ```
 
-#### Bài 12
+## Bài 12
 
 ```c
 ```
 
-#### Bài 13
+## Bài 13
 
 ```c
 ```
 
-#### Bài 14
+## Bài 14
 
 ```c
 ```
 
-#### Bài 15
+## Bài 15
 
 ```c
 ```
 
-#### Bài 16
+## Bài 16
 
 ```c
 ```
 
-#### Bài 17
+## Bài 17
 
 ```c
 ```
 
-#### Bài 18
+## Bài 18
 
 ```c
 ```
 
-#### Bài 19
+## Bài 19
 
 ```c
 ```
 
-#### Bài 20
+## Bài 20
 
 ```c
 ```

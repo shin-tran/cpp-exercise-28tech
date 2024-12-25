@@ -1,7 +1,6 @@
+# Buổi 1
 
-## Buổi 1
-
-#### Bài 1. Phần nguyên, phần dư
+## Bài 1. Phần nguyên, phần dư
 
 Giải:
 
@@ -26,7 +25,7 @@ int main() {
 }
 ```
 
-#### Bài 2. Tính toán giá trị biểu thức
+## Bài 2. Tính toán giá trị biểu thức
 
 Giải:
 
@@ -48,7 +47,7 @@ int main() {
 }
 ```
 
-#### Bài 3. Tính toán giá trị biểu thức 2
+## Bài 3. Tính toán giá trị biểu thức 2
 
 Giải:
 
@@ -69,7 +68,7 @@ int main() {
 }
 ```
 
-#### Bài 4. Tính tổng, hiệu, tích, thương
+## Bài 4. Tính tổng, hiệu, tích, thương
 
 Giải:
 
@@ -94,7 +93,7 @@ int main() {
 }
 ```
 
-#### Bài 5. Tính chu vi, diện tích hình tròn
+## Bài 5. Tính chu vi, diện tích hình tròn
 
 Giải:
 
@@ -122,7 +121,7 @@ int main() {
 }
 ```
 
-#### Bài 6. Tính khoảng cách
+## Bài 6. Tính khoảng cách
 
 Giải:
 
@@ -147,7 +146,7 @@ int main() {
   return 0;
 ```
 
-#### Bài 7. Chuyển đơn vị đo C và F
+## Bài 7. Chuyển đơn vị đo C và F
 
 Giải:
 
@@ -171,7 +170,7 @@ int main() {
 }
 ```
 
-#### Bài 8. Tính tổng 1
+## Bài 8. Tính tổng 1
 
 Giải:
 
@@ -196,7 +195,7 @@ int main() {
 }
 ```
 
-#### Bài 9. Tính tổng 2
+## Bài 9. Tính tổng 2
 
 Giải:
 
@@ -222,7 +221,7 @@ int main() {
 }
 ```
 
-#### Bài 10. Tính tổng 3
+## Bài 10. Tính tổng 3
 
 Giải:
 
@@ -250,7 +249,7 @@ int main() {
 }
 ```
 
-#### Bài 11. Tính tổng 4
+## Bài 11. Tính tổng 4
 
 Giải:
 
@@ -275,7 +274,7 @@ int main() {
 }
 ```
 
-#### Bài 12. Tính tổng 5
+## Bài 12. Tính tổng 5
 
 Giải:
 
@@ -301,7 +300,7 @@ int main() {
 }
 ```
 
-#### Bài 13. Số chia hết lớn nhất
+## Bài 13. Số chia hết lớn nhất
 
 Giải:
 
@@ -326,7 +325,7 @@ int main() {
 }
 ```
 
-#### Bài 14. Số chia hết nhỏ nhất
+## Bài 14. Số chia hết nhỏ nhất
 
 Giải:
 
@@ -351,7 +350,7 @@ int main() {
 }
 ```
 
-#### Bài 15. Kiểm tra số chia hết cho 3 và 5
+## Bài 15. Kiểm tra số chia hết cho 3 và 5
 
 Giải:
 
@@ -375,7 +374,7 @@ int main() {
 }
 ```
 
-#### Bài 16. Kiểm tra năm nhuận
+## Bài 16. Kiểm tra năm nhuận
 
 Giải:
 
@@ -401,7 +400,7 @@ int main() {
 }
 ```
 
-#### Bài 17. In ra số ngày của tháng
+## Bài 17. In ra số ngày của tháng
 
 Giải:
 
@@ -449,7 +448,7 @@ int main()
 }
 ```
 
-#### Bài 18. Kiểm tra chữ in thường
+## Bài 18. Kiểm tra chữ in thường
 
 Giải:
 
@@ -473,7 +472,7 @@ int main() {
 }
 ```
 
-#### Bài 19. Kiểm tra in hoa
+## Bài 19. Kiểm tra in hoa
 
 Giải:
 
@@ -497,7 +496,7 @@ int main() {
 }
 ```
 
-#### Bài 20. Kiểm tra chữ cái
+## Bài 20. Kiểm tra chữ cái
 
 Giải:
 
@@ -521,7 +520,7 @@ int main() {
 }
 ```
 
-#### Bài 21. Kiểm tra chữ số
+## Bài 21. Kiểm tra chữ số
 
 Giải:
 
@@ -545,7 +544,7 @@ int main() {
 }
 ```
 
-#### Bài 22. Chuyển ký tự hoa thành thường
+## Bài 22. Chuyển ký tự hoa thành thường
 
 Giải:
 
@@ -570,7 +569,7 @@ int main() {
 }
 ```
 
-#### Bài 23. Chuyển kí tự thường thành kí tự hoa
+## Bài 23. Chuyển kí tự thường thành kí tự hoa
 
 Giải:
 
@@ -595,7 +594,7 @@ int main() {
 }
 ```
 
-#### Bài 24. Chữ cái kế tiếp
+## Bài 24. Chữ cái kế tiếp
 
 Giải:
 
@@ -635,7 +634,7 @@ int main() {
 }
 ```
 
-#### Bài 25. Tam giác hợp lệ
+## Bài 25. Tam giác hợp lệ
 
 Giải:
 
@@ -660,7 +659,7 @@ int main() {
 }
 ```
 
-#### Bài 26. Kiểm tra tam giác
+## Bài 26. Kiểm tra tam giác
 
 Giải:
 
@@ -697,7 +696,7 @@ int main() {
 }
 ```
 
-#### Bài 27. Chuyển đổi ngày sang tháng, năm, ngày
+## Bài 27. Chuyển đổi ngày sang tháng, năm, ngày
 
 Giải:
 
@@ -723,7 +722,7 @@ int main() {
 }
 ```
 
-#### Bài 28. Phương trình bậc 2
+## Bài 28. Phương trình bậc 2
 
 Giải:
 
@@ -777,7 +776,7 @@ int main() {
 }
 ```
 
-#### Bài 29. Số thuộc đoạn
+## Bài 29. Số thuộc đoạn
 
 Giải:
 
@@ -803,7 +802,7 @@ int main() {
 }
 ```
 
-#### Bài 30. Phép chia
+## Bài 30. Phép chia
 
 Giải:
 
@@ -829,7 +828,7 @@ int main() {
 }
 ```
 
-#### Bài 31. Kết quả học tập
+## Bài 31. Kết quả học tập
 
 Giải:
 
@@ -866,7 +865,7 @@ int main() {
 }
 ```
 
-#### Bài 32. Số nhỏ thứ 2
+## Bài 32. Số nhỏ thứ 2
 
 Giải:
 
