@@ -1238,7 +1238,35 @@ int main() {
 ## Factory machine
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+bool check(const vector<ll>& a, ll n, ll m, ll t) {
+  ll cnt = 0;
+  for (int i = 0; i < n; i++) cnt += m / a[i];
+  if (cnt >= t) return true;
+  else return false;
+}
+
+int main() {
+  faster();
+  ll n, t; cin >> n >> t;
+  vector<ll> a(n);
+  for (ll &x : a) cin >> x;
+  ll l = 0, r = *min_element(a.begin(), a.end()) * t, res = 0;
+  while (l <= r) {
+    ll m = (l + r) / 2;
+    if (check(a, n, m, t)) {
+      res = m;
+      r = m - 1;
+    } else l = m + 1;
+  }
+  cout << res;
+  return 0;
+}
 ```
 
 ## Xếp hình domino
