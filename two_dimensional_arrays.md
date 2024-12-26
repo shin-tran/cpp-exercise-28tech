@@ -42,7 +42,36 @@ int main() {
 ## Tổng hàng, tổng cột trên ma trận
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, m; cin >> n >> m;
+  int a[n][m];
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++) cin >> a[i][j];
+  for (int i = 0; i < n; i++) {
+    int sum = 0;
+    for (int j = 0; j < m; j++) {
+      sum += a[i][j];
+    }
+    cout << sum << " ";
+  }
+  cout << endl;
+  for (int i = 0; i < m; i++) {
+    int sum = 0;
+    for (int j = 0; j < n; j++) {
+      sum += a[j][i];
+    }
+    cout << sum << " ";
+  }
+  return 0;
+}
 ```
 
 ## Số lớn nhất và nhỏ nhất trong ma trận
