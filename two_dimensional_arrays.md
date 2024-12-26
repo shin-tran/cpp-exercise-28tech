@@ -77,7 +77,40 @@ int main() {
 ## Số lớn nhất và nhỏ nhất trong ma trận
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, m; cin >> n >> m;
+  int a[n][m];
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++) cin >> a[i][j];
+  int minVal = INT_MAX, maxVal = INT_MIN;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      minVal = min(minVal, a[i][j]);
+      maxVal = max(maxVal, a[i][j]);
+    }
+  }
+  cout << minVal << endl;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (a[i][j] == minVal) cout << i + 1 << " " << j + 1 << endl;
+    }
+  }
+  cout << maxVal << endl;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (a[i][j] == maxVal) cout << i + 1 << " " << j + 1 << endl;
+    }
+  }
+  return 0;
+}
 ```
 
 ## Số thuận nghịch trong tam giác dưới
