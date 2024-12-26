@@ -3,7 +3,40 @@
 ## Liệt kê các số nguyên tố trong mảng 2 chiều
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+const int num = 1e7;
+int nt[num + 1];
+void sieve() {
+  for (int &x : nt) x = 1;
+  nt[0] = nt[1] = 0;
+  for (int i = 2; i <= sqrt(num); i++) {
+    if (nt[i]) {
+      for (int j = i * i; j <= num; j += i) nt[j] = 0;
+    }
+  }
+}
+
+int main() {
+  faster();
+  sieve();
+  int n, m; cin >> n >> m;
+  int a[n][m];
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++) cin >> a[i][j];
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (nt[a[i][j]]) cout << a[i][j] << " ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 ## Tổng hàng, tổng cột trên ma trận
