@@ -1,4 +1,4 @@
-# Sort and search | Phụ 16 1:18:26 | Chính 15
+# Sort and search | Phụ 16 1:28:56 | Chính 15
 
 ## Các số khác nhau trong mảng
 
@@ -1272,7 +1272,27 @@ int main() {
 ## Xếp hình domino
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+int main() {
+  faster();
+  ll a, b, n; cin >> a >> b >> n;
+  ll l = 0, r = max(a, b) * n, res = 0;
+  while (l <= r) {
+    ll m = (l + r) / 2;
+    ll x = m / a, y = m / b;
+    if (x * y >= n) {
+      res = m;
+      r = m - 1;
+    } else l = m + 1;
+  }
+  cout << res;
+  return 0;
+}
 ```
 
 ## Trò chơi cắt dây
