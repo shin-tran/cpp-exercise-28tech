@@ -116,7 +116,37 @@ int main() {
 ## Số thuận nghịch trong tam giác dưới
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+bool checkReverse(int n) {
+  int temp = n, reverse = 0;
+  while (temp > 0) {
+    reverse = reverse * 10 + (temp % 10);
+    temp /= 10;
+  }
+  return reverse == n;
+}
+
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n][n];
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++) cin >> a[i][j];
+  int cnt = 0;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j <= i; j++) {
+      if (checkReverse(a[i][j])) ++cnt;
+    }
+  }
+  cout << cnt;
+  return 0;
+}
 ```
 
 ## In ra ma trận theo mẫu
