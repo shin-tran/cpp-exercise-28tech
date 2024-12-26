@@ -1,4 +1,4 @@
-# Sort and search | Phụ 16 1:28:56 | Chính 15
+# Sort and search
 
 ## Các số khác nhau trong mảng
 
