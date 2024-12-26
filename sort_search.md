@@ -1304,5 +1304,31 @@ int main() {
 ## Máy photo
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+typedef long long ll;
+
+bool check(ll n, int x, int y, ll m) {
+  ll cnt = 0;
+  cnt += m / x;
+  cnt += m / y;
+  return cnt >= n;
+}
+
+int main() {
+  faster();
+  ll n, x, y; cin >> n >> x >> y;
+  ll l = 0, r = min(x, y) * n, res = 0;
+  while (l <= r) {
+    ll m = (l + r) / 2;
+    if (check(n - 1, x, y, m)) {
+      res = m;
+      r = m - 1;
+    } else l = m + 1;
+  }
+  cout << res + min(x, y);
+  return 0;
+}
 ```
