@@ -294,7 +294,40 @@ int main() {
 ## Đếm các phần tử là số nguyên tố trên đường chéo chính và phụ
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+const int num = 1e7;
+int nt[num + 1];
+void sieve() {
+  for (int &x : nt) x = 1;
+  nt[0] = nt[1] = 0;
+  for (int i = 2; i <= sqrt(num); i++) {
+    if (nt[i]) {
+      for (int j = i * i; j <= num; j += i) nt[j] = 0;
+    }
+  }
+}
+
+int main() {
+  faster();
+  sieve();
+  int n; cin >> n;
+  int a[n][n];
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++) cin >> a[i][j];
+  int cnt = 0;
+  for (int i = 0; i < n; i++) {
+    if (nt[a[i][i]]) ++cnt;
+    if (n- 1 - i != i && nt[a[i][n - 1 - i]]) ++cnt;
+  }
+  cout << cnt;
+  return 0;
+}
 ```
 
 ## Đếm các phần tử là số nguyên tố trên đường chéo chính và phụ 2
