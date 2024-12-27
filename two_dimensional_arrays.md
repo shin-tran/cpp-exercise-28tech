@@ -1,5 +1,15 @@
 # Two dimensional arrays | Phụ 17 | Chính 15 53:00
 
+## Mảng di chuyển
+
+```c
+const int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+const int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+
+const int dx[] = {-2, -2, -1, -1, 1, 1, 2, 2};
+const int dy[] = {-1, 1, -2, 2, -2, 2, -1, 1};
+```
+
 ## Liệt kê các số nguyên tố trong mảng 2 chiều
 
 ```c
