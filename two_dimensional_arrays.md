@@ -3,9 +3,10 @@
 ## Mảng di chuyển
 
 ```c
+// 8 ô xung quanh
 const int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
 const int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
-
+// di chuyển con mã
 const int dx[] = {-2, -2, -1, -1, 1, 1, 2, 2};
 const int dy[] = {-1, 1, -2, 2, -2, 2, -1, 1};
 ```
