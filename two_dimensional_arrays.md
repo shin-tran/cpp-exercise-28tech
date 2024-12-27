@@ -259,7 +259,46 @@ int main() {
 ## Count Island 1
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+const int dx[] = {-1, 0, 0, 1};
+const int dy[] = {0, -1, 1, 0};
+
+int a[100][100];
+int n, m;
+
+void loang(int i, int j) {
+  a[i][j] = 0;
+  for (int k = 0; k < 4; k++) {
+    int ni = i + dx[k];
+    int nj = j + dy[k];
+    if (ni >= 0 && ni < n && nj >= 0 && nj < m && a[ni][nj] == 1)
+      loang(ni, nj);
+  }
+}
+
+int main() {
+  faster();
+  cin >> n >> m;
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++) cin >> a[i][j];
+  int cnt = 0;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (a[i][j] == 1) {
+        ++cnt;
+        loang(i, j);
+      }
+    }
+  }
+  cout << cnt;
+  return 0;
+}
 ```
 
 ## Count Island 2
