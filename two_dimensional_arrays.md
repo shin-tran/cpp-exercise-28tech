@@ -1,4 +1,4 @@
-# Two dimensional arrays | Phụ 17 | Chính 15
+# Two dimensional arrays | Phụ 17 | Chính 15 53:00
 
 ## Liệt kê các số nguyên tố trong mảng 2 chiều
 
@@ -200,7 +200,34 @@ int main() {
 ## Nhân 2 ma trận
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, m, p; cin >> n >> m >> p;
+  int a[n][m], b[m][p];
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < m; j++) cin >> a[i][j];
+  for (int i = 0; i < m; i++)
+    for (int j = 0; j < p; j++) cin >> b[i][j];
+  ll c[n][p];
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < p; j++) {
+      c[i][j] = 0;
+      for (int k = 0; k < m; k++) {
+        c[i][j] += 1ll * a[i][k] * b[k][j];
+      }
+    }
+  }
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < p; j++) cout << c[i][j];
+  return 0;
+}
 ```
 
 ## Ma trận xoáy ốc
@@ -230,7 +257,42 @@ int main() {
 ## Số điểm cực đại
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, m;
+  cin >> n >> m;
+  vector<vector<int>> a(n, vector<int>(m));
+  for (int i = 0; i < n; ++i)
+    for (int j = 0; j < m; ++j) cin >> a[i][j];
+  int dx[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+  int dy[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+  int count = 0;
+  for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < m; ++j) {
+      bool isPeak = true;
+      for (int k = 0; k < 8; ++k) {
+        int ni = i + dx[k];
+        int nj = j + dy[k];
+        if (ni >= 0 && ni < n && nj >= 0 && nj < m) {
+          if (a[i][j] <= a[ni][nj]) {
+            isPeak = false;
+            break;
+          }
+        }
+      }
+      if (isPeak) ++count;
+    }
+  }
+  cout << count << endl;
+  return 0;
+}
 ```
 
 ## Maximum path sum
