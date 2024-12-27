@@ -494,7 +494,48 @@ int main() {
 ## Ma trận xoáy ốc Fibonacci
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+ll fi[100];
+void fibo() {
+  ll fn;
+  fi[0] = 0, fi[1] = 1;
+  for (int i = 2; i < 93; i++) {
+    fn = fi[i - 2] + fi[i - 1];
+    fi[i] = fn;
+  }
+}
+
+int main() {
+  faster();
+  fibo();
+  int n; cin >> n;
+  int a[n][n];
+  int cnt = 0;
+  int top = 0, bottom = n - 1, left = 0, right = n - 1;
+  while (cnt < n * n) {
+    for (int i = left; i <= right; ++i) a[top][i] = fi[cnt++];
+    top++;
+    for (int i = top; i <= bottom; ++i) a[i][right] = fi[cnt++];
+    right--;
+    for (int i = right; i >= left; --i) a[bottom][i] = fi[cnt++];
+    bottom--;
+    for (int i = bottom; i >= top; --i) a[i][left] = fi[cnt++];
+    left++;
+  }
+  for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < n; ++j) {
+      cout << a[i][j] << " ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 ## Count Island 1
