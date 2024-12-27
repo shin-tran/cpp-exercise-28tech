@@ -264,7 +264,31 @@ int main() {
 ## Hoán vị 2 cột của ma trận
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n][n];
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++) cin >> a[i][j];
+  int c1, c2; cin >> c1 >> c2;
+  c1--; c2--;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      if (j == c1) cout << a[i][c2] << " ";
+      else if (j == c2) cout << a[i][c1] << " ";
+      else cout << a[i][j] << " ";
+    }
+    cout << endl;
+  }
+  return 0;
+}
 ```
 
 ## Đếm các phần tử là số nguyên tố trên đường chéo chính và phụ
