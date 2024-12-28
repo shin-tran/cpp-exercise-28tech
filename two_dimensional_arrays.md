@@ -1,4 +1,4 @@
-# Two dimensional arrays | Phụ 17 | Chính 16
+# Two dimensional arrays | Phụ 18 | Chính 16
 
 ## Mảng di chuyển
 
@@ -323,7 +323,7 @@ int main() {
   int cnt = 0;
   for (int i = 0; i < n; i++) {
     if (nt[a[i][i]]) ++cnt;
-    if (n- 1 - i != i && nt[a[i][n - 1 - i]]) ++cnt;
+    if (nt[a[i][n - 1 - i]]) ++cnt;
   }
   cout << cnt;
   return 0;
