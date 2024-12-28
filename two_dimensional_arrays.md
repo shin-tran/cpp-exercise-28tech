@@ -738,7 +738,39 @@ int main() {
 ## Đường đi của quân Mã
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define endl "\n"
+typedef long long ll;
+
+const int dx[] = {-2, -2, -1, -1, 1, 1, 2, 2};
+const int dy[] = {-1, 1, -2, 2, -2, 2, -1, 1};
+
+ll n, m, a[500][500];
+
+void loang(int i, int j) {
+  a[i][j] = 0;
+  for (int k = 0; k < 8; k++) {
+    int ni = i + dx[k];
+    int nj = j + dy[k];
+    if (ni >= 1 && ni <= n && nj >= 1 && nj <= m && a[ni][nj] == 1) loang(ni, nj);
+  }
+}
+
+int main() {
+  faster();
+  cin >> n >> m;
+  int s, t, u, v;
+  cin >> s >> t >> u >> v;
+  for (int i = 1; i <= n; i++)
+    for (int j = 1; j <= m; j++) cin >> a[i][j];
+  loang(s, t);
+  if (a[u][v] == 1) cout << "NO\n";
+  else cout << "YES\n";
+  return 0;
+}
 ```
 
 ## Snake
