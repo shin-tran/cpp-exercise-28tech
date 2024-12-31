@@ -946,7 +946,7 @@ int findMaxPath(int n) {
 
 int main() {
   faster();
-	int n; cin >> n;
+  int n; cin >> n;
   for (int i = 0; i < n; i++)
     for (int j = 0; j < n; j++) cin >> a[i][j];
   cout << findMaxPath(n) << endl;
