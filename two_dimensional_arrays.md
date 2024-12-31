@@ -914,7 +914,47 @@ int main() {
 ## Maximum path sum 2
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+typedef long long ll;
+
+const int dx[] = {-1, -1, -1};
+const int dy[] = {-1, 0, 1};
+
+const int MAX = 100;
+int a[MAX][MAX], dp[MAX][MAX];
+
+int findMaxPath(int n) {
+  for (int i = 0; i < n; i++) dp[0][i] = a[0][i];
+  for (int i = 1; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      int maxVal = 0;
+      for (int k = 0; k < 3; k++) {
+        int ni = i + dx[k];
+        int nj = j + dy[k];
+        if (nj >= 0 && nj <= n) maxVal = max(maxVal, dp[ni][nj]);
+      }
+      dp[i][j] = a[i][j] + maxVal;
+    }
+  }
+  int ans = 0;
+  for (int i = 0; i < n; i++) ans = max(ans, dp[n - 1][i]);
+  return ans;
+}
+
+int main() {
+  faster();
+	int n; cin >> n;
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++) cin >> a[i][j];
+  cout << findMaxPath(n) << endl;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) cout << dp[i][j] << " ";
+    cout << endl;
+  }
+}
 ```
 
 ## Maximum path sum 3
