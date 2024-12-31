@@ -1,4 +1,4 @@
-# Two dimensional arrays | Phụ 18 | Chính 16
+# Two dimensional arrays
 
 ## Mảng di chuyển
 
