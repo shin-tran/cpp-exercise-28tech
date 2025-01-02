@@ -147,7 +147,7 @@ int main() {
   int n = s.size();
   sort(s.begin(), s.end());
   auto non_zero = s.find_first_not_of('0');
-  for (int i = non_zero; i < n; i++) cout << s[i];
+  cout << s.substr(non_zero);
   return 0;
 }
 ```
