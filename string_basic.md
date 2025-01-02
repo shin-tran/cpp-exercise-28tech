@@ -135,7 +135,21 @@ int main() {
 ## Sắp xếp chữ số
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  int n = s.size();
+  sort(s.begin(), s.end());
+  auto non_zero = s.find_first_not_of('0');
+  for (int i = non_zero; i < n; i++) cout << s[i];
+  return 0;
+}
 ```
 
 ## In ra chữ số
