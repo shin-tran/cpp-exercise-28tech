@@ -155,7 +155,25 @@ int main() {
 ## In ra chữ số
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, so, chuCai; getline(cin, s);
+  int n = s.size();
+  for (int i = 0; i < n; i++) {
+    if (isdigit(s[i])) so.push_back(s[i]);
+    else chuCai.push_back(s[i]);
+  }
+  for (char x : so) cout << x;
+  cout << endl;
+  for (char x : chuCai) cout << x;
+  return 0;
+}
 ```
 
 ## 28tech và Tèo
