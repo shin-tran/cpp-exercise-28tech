@@ -1049,7 +1049,51 @@ int main() {
 ## Đường đi của quân Tịnh
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+typedef long long ll;
+
+const int dx[] = {-1, -1, 1, 1};
+const int dy[] = {-1, 1, -1, 1};
+
+vector<vector<int>> board;
+vector<vector<bool>> visited;
+int n, s, t;
+
+bool isValid(int x, int y) {
+  return (x >= 0 && x < n && y >= 0 && y < n && board[x][y] == 0 && !visited[x][y]);
+}
+
+int bishopMoves(int x, int y) {
+  if (!isValid(x, y)) return 0;
+  visited[x][y] = true;
+  int count = 1;
+  for (int i = 0; i < 4; ++i) {
+    int nx = x + dx[i], ny = y + dy[i];
+    while (isValid(nx, ny)) {
+      count += bishopMoves(nx, ny);
+      nx += dx[i];
+      ny += dy[i];
+    }
+  }
+  return count;
+}
+
+int main() {
+  faster();
+  cin >> n >> s >> t;
+  board.resize(n, vector<int>(n));
+  visited.resize(n, vector<bool>(n, false));
+  for (int i = 0; i < n; ++i) {
+    for (int j = 0; j < n; ++j) {
+      cin >> board[i][j];
+    }
+  }
+  cout << bishopMoves(s, t) << endl;
+  return 0;
+}
 ```
 
 ## Đường đi của quân Xe
