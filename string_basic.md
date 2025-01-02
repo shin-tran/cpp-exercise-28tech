@@ -245,7 +245,34 @@ int main() {
 ## Ngày sinh
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, word; 
+  getline(cin, s);
+  stringstream ss(s);
+  vector<string> parts;
+  
+  while (getline(ss, word, '/')) {
+    if (word.size() < 2) {
+      word = "0" + word;
+    }
+    parts.push_back(word);
+  }
+  
+  if (parts.size() == 3) {
+    cout << parts[0] << '/' << parts[1] << '/' << parts[2];
+  } else {
+    cout << "Invalid date format";
+  }
+  
+  return 0;
+}
 ```
 
 ## Đếm từ in hoa
