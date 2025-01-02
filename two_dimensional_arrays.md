@@ -960,13 +960,84 @@ int main() {
 ## Maximum path sum 3
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+typedef long long ll;
+
+const int dx[] = {-1, 0, 1};
+const int dy[] = {-1, -1, -1};
+
+const int MAX = 1005;
+int a[MAX][MAX], dp[MAX][MAX];
+
+int findMaxPath(int n) {
+  for (int i = 0; i < n; i++) dp[i][0] = a[i][0];
+  for (int j = 1; j < n; j++) {
+    for (int i = 0; i < n; i++) {
+      dp[i][j] = dp[i][j - 1] + a[i][j];
+      for (int k = 0; k < 3; ++k) {
+        int ni = i + dx[k];
+        int nj = j + dy[k];
+        if (ni >= 0 && ni < n && nj >= 0 && nj < n)
+          dp[i][j] = max(dp[i][j], dp[ni][nj] + a[i][j]);
+      }
+    }
+  }
+  int maxPathSum = INT_MIN;
+  for (int i = 0; i < n; i++) maxPathSum = max(maxPathSum, dp[i][n - 1]);
+  return maxPathSum;
+}
+
+
+int main() {
+  faster();
+  int n; cin >> n;
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++) cin >> a[i][j];
+  cout << findMaxPath(n);
+  return 0;
+}
 ```
 
 ## Hình vuông lớn nhất
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+typedef long long ll;
+
+const int MAX = 1005;
+int a[MAX][MAX], dp[MAX][MAX];
+
+int findMaxSum3x3(int n) {
+  int maxSum = INT_MIN;
+  for (int i = 0; i <= n - 3; ++i) {
+    for (int j = 0; j <= n - 3; ++j) {
+      int currentSum = 0;
+      for (int k = 0; k < 3; ++k) {
+        for (int l = 0; l < 3; ++l) {
+          currentSum += a[i + k][j + l];
+        }
+      }
+      maxSum = max(maxSum, currentSum);
+    }
+  }
+  return maxSum;
+}
+
+
+int main() {
+  faster();
+  int n; cin >> n;
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++) cin >> a[i][j];
+  cout << findMaxSum3x3(n);
+  return 0;
+}
 ```
 
 ## Đường đi của quân Tịnh
