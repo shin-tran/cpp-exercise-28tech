@@ -406,7 +406,27 @@ int main() {
 ## Sắp xếp các từ
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  vector<string> v;
+  while (ss >> w) {
+    v.push_back(w);
+  }
+  sort(v.begin(), v.end());
+  for (string c : v) cout << c << " ";
+  cout << endl;
+  sort(v.begin(), v.end(), greater<string>());
+  for (string c : v) cout << c << " ";
+  return 0;
+}
 ```
 
 ## Sắp xếp theo chiều dài
