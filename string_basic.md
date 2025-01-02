@@ -458,7 +458,28 @@ int main() {
 ## Đếm số lượng từ khác nhau trong xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+void to_lower(string &s) {
+  for (char &c : s) if (isupper(c)) c = tolower(c);
+}
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  set<string> se;
+  while (ss >> w) {
+    to_lower(w);
+    se.insert(w);
+  }
+  cout << se.size();
+  return 0;
+}
 ```
 
 ## Các từ thuận nghịch
