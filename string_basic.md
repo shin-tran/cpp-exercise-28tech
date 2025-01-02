@@ -82,7 +82,25 @@ int main() {
 ## Số đẹp
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s;
+  getline(cin, s);
+  for (string::size_type i = 1; i < s.size() - 1; i++) {
+    if (s[i - 1] != s[i] - 1 && s[i + 1] != s[i] + 1) {
+      cout << "NO";
+      return 0;
+    }
+  }
+  cout << "YES";
+  return 0;
+}
 ```
 
 ## Chèn dấu phẩy
