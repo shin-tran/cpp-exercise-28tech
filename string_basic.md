@@ -106,7 +106,30 @@ int main() {
 ## Chèn dấu phẩy
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, result;
+  getline(cin, s);
+  int size = s.size(), cnt = 0;
+  for (int i = size - 1; i >= 0; i--) {
+    cnt++;
+    result.push_back(s[i]);
+    if (cnt == 3 && i != 0) {
+      result.push_back(',');
+      cnt = 0;
+    }
+  }
+
+  reverse(result.begin(), result.end());
+  cout << result << endl;
+  return 0;
+}
 ```
 
 ## Sắp xếp chữ số
