@@ -331,7 +331,31 @@ int main() {
 ## Tí và 28tech
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+void to_lower(string &s) {
+  int n = s.size();
+  for (int i = 0; i < n; i++) {
+    if (isupper(s[i])) s[i] = tolower(s[i]);
+  }
+}
+
+int main() {
+  faster();
+  string s, word, t = "28tech"; getline(cin, s);
+  stringstream ss(s);
+  int cnt = 0;
+  while (ss >> word) {
+    to_lower(word);
+    if (word == t) cnt++;
+  }
+  cout << cnt;
+  return 0;
+}
 ```
 
 ## Từ chẵn lẻ
