@@ -179,7 +179,23 @@ int main() {
 ## 28tech và Tèo
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, r = "28tech", result; getline(cin, s);
+  multiset<char> se(r.begin(), r.end());
+  for (char c : s) {
+    if (se.find(c) == se.end()) result += c;
+  }
+  if (result.empty()) cout << "EMPTY";
+  else cout << result;
+  return 0;
+}
 ```
 
 ## Chèn
