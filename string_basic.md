@@ -278,7 +278,29 @@ int main() {
 ## Đếm từ in hoa
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool is_upper(string s) {
+  int n = s.size();
+  for (int i = 0; i < n; i++) if (!(isupper(s[i]))) return false;
+  return true;
+}
+
+int main() {
+  faster();
+  string s, word; getline(cin, s);
+  stringstream ss(s);
+  int cnt = 0;
+  while (ss >> word) {
+    if (is_upper(word)) cnt++;
+  }
+  cout << cnt;
+  return 0;
+}
 ```
 
 ## Liệt kê từ
