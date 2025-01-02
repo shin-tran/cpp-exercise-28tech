@@ -432,7 +432,27 @@ int main() {
 ## Sắp xếp theo chiều dài
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool cmp(const pair<string, int>& a, const pair<string, int>& b) {
+  if (a.second != b.second) return a.second < b.second;
+  return a.first < b.first;
+}
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  vector<pair<string, int>> v;
+  while (ss >> w) v.push_back({w, w.size()});
+  sort(v.begin(), v.end(), cmp);
+  for (auto c : v) cout << c.first << " ";
+  return 0;
+}
 ```
 
 ## Đếm số lượng từ khác nhau trong xâu
