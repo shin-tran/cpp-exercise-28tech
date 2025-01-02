@@ -60,7 +60,23 @@ int main() {
 ## Kí tự trong đoạn
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s;
+  getline(cin, s);
+  int sum = 0;
+  for (int i = 0; i < s.size(); i++) {
+    if (isdigit(s[i])) sum += s[i] - '0';
+  }
+  cout << sum;
+  return 0;
+}
 ```
 
 ## Số đẹp
