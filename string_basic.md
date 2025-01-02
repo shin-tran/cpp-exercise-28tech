@@ -201,7 +201,20 @@ int main() {
 ## Chèn
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, r = "28tech"; getline(cin, s);
+  int n; cin >> n;
+  s.insert(n, r);
+  cout << s;
+  return 0;
+}
 ```
 
 ## Kí tự lặp lại đầu tiên
