@@ -386,7 +386,21 @@ int main() {
 ## Sắp xếp kí tự
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  sort(s.begin(), s.end());
+  cout << s << endl;
+  sort(s.begin(), s.end(), greater<char>());
+  cout << s;
+  return 0;
+}
 ```
 
 ## Sắp xếp các từ
