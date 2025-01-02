@@ -306,7 +306,26 @@ int main() {
 ## Liệt kê từ
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, word; getline(cin, s);
+  int n = s.size();
+  for (int i = 0; i < n; i++) {
+    if (s[i] == '.' || s[i] == ',' || s[i] == '!' || s[i] == '?')
+      s[i] = ' ';
+  }
+  stringstream ss(s);
+  while (ss >> word) {
+    cout << word << " ";
+  }
+  return 0;
+}
 ```
 
 ## Tí và 28tech
