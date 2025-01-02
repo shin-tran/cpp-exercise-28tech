@@ -1,4 +1,4 @@
-# String basic | Phụ 18 | Chính 17
+# String basic
 
 ## Chữ số đứng giữa
 
@@ -485,5 +485,28 @@ int main() {
 ## Các từ thuận nghịch
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool thuan_nghich(string s) {
+  string temp = s;
+  reverse(temp.begin(), temp.end());
+  if (temp == s) return true;
+  return false;
+}
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  vector<string> v;
+  while (ss >> w) {
+    if (thuan_nghich(w)) v.push_back(w);
+  }
+  for (string c : v) cout << c << " ";
+  return 0;
+}
 ```
