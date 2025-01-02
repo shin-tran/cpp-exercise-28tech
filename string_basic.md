@@ -3,13 +3,58 @@
 ## Chữ số đứng giữa
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s;
+  getline(cin, s);
+  int size = s.size();
+  if (size % 2 == 0) cout << "NOT FOUND";
+  else cout << s[size / 2];
+  return 0;
+}
 ```
 
 ## In lật ngược, in hoa, in thường
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+void to_lower(string &s) {
+  for (int i = 0; i < s.size(); i++) {
+    s[i] = tolower(s[i]);
+  }
+}
+
+void to_upper(string &s) {
+  for (int i = 0; i < s.size(); i++) {
+    s[i] = toupper(s[i]);
+  }
+}
+
+int main() {
+  faster();
+  string s;
+  getline(cin, s);
+  int size = s.size();
+  for (int i = size - 1; i >= 0; i--) cout << s[i];
+  to_lower(s);
+  cout << endl;
+  for (int i = 0; i < size; i++) cout << s[i];
+  to_upper(s);
+  cout << endl;
+  for (int i = 0; i < size; i++) cout << s[i];
+  return 0;
+}
 ```
 
 ## Kí tự trong đoạn
