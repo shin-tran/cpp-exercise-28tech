@@ -1099,5 +1099,42 @@ int main() {
 ## Đường đi của quân Xe
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+const int dx[] = {-2, -1, 1, 2, 2, 1, -1, -2};
+const int dy[] = {1, 2, 2, 1, -1, -2, -2, -1};
+
+const int MAX = 1005;
+int a[MAX][MAX];
+int n, s, t, cnt = 0;
+
+bool isValid(int x, int y) {
+  return (x >= 0 && x < n && y >= 0 && y < n && a[x][y] == 0);
+}
+
+void knightMoves(int i, int j) {
+  a[i][j] = 1;
+  for (int k = 0; k < 8; k++) {
+    int ni = i + dx[k];
+    int nj = j + dy[k];
+    if (isValid(ni, nj)) {
+      ++cnt;
+      knightMoves(ni, nj);
+    }
+  }
+}
+
+int main() {
+  faster();
+  cin >> n >> s >> t;
+  for (int i = 0; i < n; i++)
+    for (int j = 0; j < n; j++) cin >> a[i][j];
+  knightMoves(s, t);
+  cout << cnt;
+  return 0;
+}
 ```
