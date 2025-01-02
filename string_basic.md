@@ -361,7 +361,26 @@ int main() {
 ## Từ chẵn lẻ
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, word; getline(cin, s);
+  stringstream ss(s);
+  int cnt = 1;
+  bool first = true;
+  while (ss >> word) {
+    if (cnt++ % 2 == 0) reverse(word.begin(), word.end());
+    if (!first) cout << " ";
+    cout << word;
+    first = false;
+  }
+  return 0;
+}
 ```
 
 ## Sắp xếp kí tự
