@@ -188,7 +188,7 @@ typedef long long ll;
 int main() {
   faster();
   string s, r = "28tech", result; getline(cin, s);
-  multiset<char> se(r.begin(), r.end());
+  set<char> se(r.begin(), r.end());
   for (char c : s) {
     if (se.find(c) == se.end()) result += c;
   }
