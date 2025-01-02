@@ -220,7 +220,26 @@ int main() {
 ## Kí tự lặp lại đầu tiên
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  map<char, int> mp;
+  for (char c : s) {
+    mp[c]++;
+    if (mp[c] > 1) {
+      cout << c;
+      return 0;
+    }
+  }
+  cout << "NONE";
+  return 0;
+}
 ```
 
 ## Ngày sinh
