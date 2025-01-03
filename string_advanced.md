@@ -86,7 +86,28 @@ int main() {
 ## Ký tự xuất hiện nhiều nhất trong xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool cmp(const pair<char, int>& a, const pair<char, int>& b) {
+  return a.second < b.second;
+}
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  map<char, int> mp;
+  for (char c : s) mp[c]++;
+  vector<pair<char, int>> v(mp.begin(), mp.end());
+  sort(v.begin(), v.end(), cmp);
+  auto min = v.begin(); auto max = v.rbegin();
+  cout << (*max).first << " " << (*max).second << endl;
+  cout << (*min).first << " " << (*min).second << endl;
+  return 0;
+}
 ```
 
 ## Ký tự xuất hiện ở cả 2 xâu
