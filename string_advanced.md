@@ -3,7 +3,24 @@
 ## Đếm số loại ký tự trong xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  int chu_cai = 0, so = 0, dac_biet = 0;
+  for (char c : s) {
+    if (!isalnum(c)) dac_biet++;
+    else if (isalpha(c)) chu_cai++;
+    else so++;
+  }
+  cout << chu_cai << " " << so << " "<< dac_biet;
+  return 0;
+}
 ```
 
 ## In hoa, in thường
