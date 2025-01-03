@@ -26,7 +26,33 @@ int main() {
 ## In hoa, in thường
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+string to_upper(string s) {
+  for (char &c : s) {
+    if (islower(c)) c = toupper(c);
+  }
+  return s;
+}
+
+string to_lower(string s) {
+  for (char &c : s) {
+    if (isupper(c)) c = tolower(c);
+  }
+  return s;
+}
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  cout << to_upper(s) << endl;
+  cout << to_lower(s);
+  return 0;
+}
 ```
 
 ## Tần suất xuất hiện của ký tự
