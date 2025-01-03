@@ -58,7 +58,29 @@ int main() {
 ## Tần suất xuất hiện của ký tự
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool cmp(const pair<char, int>& a, const pair<char, int>& b) {
+  return a.second > b.second;
+}
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  map<char, int> mp;
+  for (char c : s) mp[c]++;
+  for (auto it : mp)
+    cout << it.first << " " << it.second << endl;
+  vector<pair<char, int>> v(mp.begin(), mp.end());
+  sort(v.begin(), v.end(), cmp);
+  for (auto it : v)
+    cout << endl << it.first << " " << it.second;
+  return 0;
+}
 ```
 
 ## Ký tự xuất hiện nhiều nhất trong xâu
