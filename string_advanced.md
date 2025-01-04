@@ -199,7 +199,22 @@ int main() {
 ## Xâu pangram 1
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  set<char> se;
+  for (char c : s)
+    if (isalpha(c)) se.insert(c);
+  if (se.size() == 26) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Đếm số lượng từ trong xâu
