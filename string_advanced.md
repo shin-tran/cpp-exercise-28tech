@@ -179,7 +179,21 @@ int main() {
 ## Xâu đối xứng
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  string temp = s;
+  reverse(temp.begin(), temp.end());
+  if (temp == s) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Xâu pangram 1
