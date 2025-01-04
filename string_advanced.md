@@ -151,10 +151,29 @@ int main() {
 }
 ```
 
-## Ký tự xuất hiện ở 2 xâu 2
+## Ký tự xuất hiện ở cả 2 xâu 2
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, t;
+  getline(cin, s); getline(cin, t);
+  set<char> s1(s.begin(), s.end()), s2(t.begin(), t.end()), hops, hopt;
+  for (char c : s1)
+    if (!s2.count(c)) hops.insert(c);
+  for (char c : s2)
+    if (!s1.count(c)) hopt.insert(c);
+  for (char c : hops) cout << c;
+  cout << endl;
+  for (char c : hopt) cout << c;
+  return 0;
+}
 ```
 
 ## Xâu đối xứng
