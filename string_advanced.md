@@ -113,7 +113,42 @@ int main() {
 ## Ký tự xuất hiện ở cả 2 xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, t;
+  getline(cin, s); getline(cin, t);
+  set<char> s1(s.begin(), s.end()), s2(t.begin(), t.end()), hop, giao;
+  auto it1 = s1.begin(), it2 = s2.begin();
+  while (it1 != s1.end() && it2 != s2.end()) {
+    if (*it1 == *it2) {
+      hop.insert(*it1);
+      giao.insert(*it1);
+      ++it1; ++it2;
+    } else if (*it1 < *it2) {
+      hop.insert(*it1);
+      ++it1;
+    } else {
+      hop.insert(*it2);
+      ++it2;
+    }
+  }
+  while (it1 != s1.end()) {
+    hop.insert(*it1); ++it1;
+  }
+  while (it2 != s2.end()) {
+    hop.insert(*it2); ++it2;
+  }
+  for (char c : giao) cout << c;
+  cout << endl;
+  for (char c : hop) cout << c;
+  return 0;
+}
 ```
 
 ## Ký tự xuất hiện ở 2 xâu 2
