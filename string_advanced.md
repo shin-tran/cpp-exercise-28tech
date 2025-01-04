@@ -220,7 +220,29 @@ int main() {
 ## Đếm số lượng từ trong xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  set<string> se;
+  vector<string> ve;
+  while (ss >> w) {
+    if (!se.count(w)) {
+      se.insert(w);
+      ve.push_back(w);
+    }
+  }
+  for (const string& c : se) cout << c << " ";
+  cout << endl;
+  for (const string& c : ve) cout << c << " ";
+  return 0;
+}
 ```
 
 ## Liệt kê các từ khác nhau trong xâu
