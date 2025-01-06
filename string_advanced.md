@@ -512,7 +512,66 @@ int main() {
 ## Tạo email và mật khẩu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+string to_lower(string s) {
+  for (char &c : s) c = tolower(c);
+  return s;
+}
+
+string make_email(const vector<string>& v, string domain = "@xyz.edu.vn") {
+  int n = v.size() - 1;
+  if (n < 1) return "Ten khong hop le!";
+  string s = v[n - 1];
+  for (int i = 0; i < n - 1; i++) {
+    string temp = v[i];
+    s.push_back(temp[0]);
+  }
+  return s + domain;
+}
+
+string make_pw(const vector<string>& v) {
+  int n = v.size();
+  string pass = "";
+  for (int i = 0; i < n; i++) {
+    string temp = v[i];
+    if (temp[0] == '0') pass += temp[1];
+    else pass += temp;
+  }
+  return pass;
+}
+
+int main() {
+  faster();
+  int t; cin >> t;
+  cin.ignore();
+  while (t--) {
+    string s, w; getline(cin, s);
+    stringstream ss(s);
+    vector<string> db;
+    while (ss >> w) {
+      db.push_back(to_lower(w));
+    }
+    if (db.size() < 2) {
+      cout << "Nhap sai dau vao!\n";
+      continue;
+    }
+    cout << make_email(db) << "\n";
+    string s2 = db[db.size() - 1];
+    ss.str(s2);
+    ss.clear();
+    vector<string> pw;
+    while (getline(ss, w, '/')) {
+      pw.push_back(w);
+    }
+    cout << make_pw(pw) << "\n";
+  }
+  return 0;
+}
 ```
 
 ## Tạo email và mật khẩu 2
