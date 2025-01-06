@@ -276,7 +276,35 @@ int main() {
 ## Sắp xếp các từ trong xâu 1
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool cmp(const string& a, const string& b) {
+  if (a.size() != b.size()) return a.size() < b.size();
+  return a < b;
+}
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  set<string> se;
+  vector<string> ve;
+  while (ss >> w) {
+    if (!se.count(w)) {
+      se.insert(w);
+      ve.push_back(w);
+    }
+  }
+  for (const string& c : se) cout << c << " ";
+  cout << endl;
+  sort(ve.begin(), ve.end(), cmp);
+  for (const string& c : ve) cout << c << " ";
+  return 0;
+}
 ```
 
 ## Sắp xếp các từ trong xâu 2
