@@ -1,4 +1,4 @@
-# String advanced | Phụ 18 | Chính 17
+# String advanced | Phụ 18 1:00:00 | Chính 17
 
 ## Đếm số loại ký tự trong xâu
 
@@ -400,7 +400,27 @@ int main() {
 ## Kiểm tra xâu con
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, t;
+  getline(cin, s); getline(cin, t);
+  int n = s.size();
+  for (int i = 0; i < n; i++) {
+    string sub = s.substr(i, i + t.size());
+    if (sub == t) {
+      cout << "YES";
+      return 0;
+    }
+  }
+  cout << "NO";
+  return 0;
+}
 ```
 
 ## Chuẩn hóa tên 1
