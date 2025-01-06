@@ -525,11 +525,10 @@ string to_lower(string s) {
 
 string make_email(const vector<string>& v, string domain = "@xyz.edu.vn") {
   int n = v.size() - 1;
-  if (n < 1) return "Ten khong hop le!";
+  if (n < 1) return "Invalid name!";
   string s = v[n - 1];
   for (int i = 0; i < n - 1; i++) {
-    string temp = v[i];
-    s.push_back(temp[0]);
+    s.push_back(v[i][0]);
   }
   return s + domain;
 }
@@ -538,9 +537,8 @@ string make_pw(const vector<string>& v) {
   int n = v.size();
   string pass = "";
   for (int i = 0; i < n; i++) {
-    string temp = v[i];
-    if (temp[0] == '0') pass += temp[1];
-    else pass += temp;
+    if (v[i][0] == '0') pass += v[i][1];
+    else pass += v[i];
   }
   return pass;
 }
@@ -557,7 +555,7 @@ int main() {
       db.push_back(to_lower(w));
     }
     if (db.size() < 2) {
-      cout << "Nhap sai dau vao!\n";
+      cout << "Invalid input!\n";
       continue;
     }
     cout << make_email(db) << "\n";
