@@ -426,7 +426,43 @@ int main() {
 ## Chuẩn hóa tên 1
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+string to_upper(string s) {
+  s[0] = toupper(s[0]);
+  int n = s.size();
+  for (int i = 1; i < n; i++) s[i] = tolower(s[i]);
+  return s;
+}
+
+string format_date(string s) {
+  if (s.size() < 2) s.insert(0, "0");
+  return s;
+}
+
+int main() {
+  faster();
+  string s, t, w;
+  getline(cin, s); getline(cin, t);
+  stringstream ss(s);
+  while (ss >> w) {
+    cout << to_upper(w) << " ";
+  }
+  cout << endl;
+  ss.str(t);
+  ss.clear();
+  bool check = false;
+  while (getline(ss, w, '/')) {
+    if (check) cout << "/";
+    cout << format_date(w);
+    check = true;
+  }
+  return 0;
+}
 ```
 
 ## Chuẩn hóa tên 2
