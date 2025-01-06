@@ -347,7 +347,27 @@ int main() {
 ## Tần suất các từ xuất hiện trong xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  map<string, int> mp;
+  vector<pair<string, int>> ve;
+  while (ss >> w) {
+    if (!mp.count(w)) ve.push_back({w, 1});
+    mp[w]++;
+  }
+  for (auto &it : ve) it.second = mp[it.first];
+  for (auto it : mp) cout << it.first << " " << it.second << endl;
+  for (auto it : ve) cout << endl << it.first << " " << it.second;
+  return 0;
+}
 ```
 
 ## Từ xuất hiện nhiều nhất, ít nhất
