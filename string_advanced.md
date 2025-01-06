@@ -373,7 +373,28 @@ int main() {
 ## Từ xuất hiện nhiều nhất, ít nhất
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool cmp(const pair<string, int>& a, const pair<string, int>& b) {
+  return a.second < b.second;
+}
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  map<string, int> mp;
+  while (ss >> w) mp[w]++;
+  vector<pair<string, int>> ve(mp.begin(), mp.end());
+  sort(ve.begin(), ve.end(), cmp);
+  cout << ve.rbegin()->first << " " << ve.rbegin()->second << endl;
+  cout << ve.begin()->first << " " << ve.begin()->second << endl;
+  return 0;
+}
 ```
 
 ## Kiểm tra xâu con
