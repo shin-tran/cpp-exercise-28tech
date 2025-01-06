@@ -1,4 +1,4 @@
-# String advanced | Phụ 18 1:00:00 | Chính 17
+# String advanced | Phụ 18 1:15:00 | Chính 17
 
 ## Đếm số loại ký tự trong xâu
 
@@ -468,7 +468,45 @@ int main() {
 ## Chuẩn hóa tên 2
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+string hoa_dau(string s) {
+  s[0] = toupper(s[0]);
+  int n = s.size();
+  for (int i = 1; i < n; i++) s[i] = tolower(s[i]);
+  return s;
+}
+
+string to_upper(string s) {
+  int n = s.size();
+  for (int i = 0; i < n; i++) s[i] = toupper(s[i]);
+  return s;
+}
+
+int main() {
+  faster();
+  string s, w; getline(cin, s);
+  stringstream ss(s);
+  vector<string> ve;
+  while (ss >> w) {
+    ve.push_back(hoa_dau(w));
+  }
+  int n = ve.size();
+  ve[n - 1] = to_upper(ve[n - 1]);
+  for (int i = 0; i < n; i++) {
+    cout << ve[i];
+    if (i != n - 2) cout << " ";
+    else cout << ", ";
+  }
+  cout << endl;
+  cout << ve[n - 1] << ", ";
+  for (int i = 0; i < n - 1; i++) cout << ve[i] << " ";
+  return 0;
+}
 ```
 
 ## Tạo email và mật khẩu
