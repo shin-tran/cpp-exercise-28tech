@@ -743,7 +743,32 @@ int main() {
 ## Ghép số
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; cin >> s;
+  s += 'a';
+  vector<string> v;
+  string temp = "";
+  for (size_t i = 0; i < s.size(); i++) {
+    if (isdigit(s[i])) temp += s[i];
+    else {
+      while (temp.size() > 1 && temp[0] == '0') temp.erase(0, 1);
+      if (temp != "") v.push_back(temp);
+      temp = "";
+    }
+  }
+  sort(v.begin(), v.end(), [](const string& a, const string& b)->bool{
+    return a + b > b + a;
+  });
+  for (string s : v) cout << s;
+  return 0;
+}
 ```
 
 ## Tổng chữ số của số nguyên
