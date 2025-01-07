@@ -1,4 +1,4 @@
-# String advanced | Phụ 18 1:15:00 | Chính 17
+# String advanced | Phụ 18 1:35:00 | Chính 17
 
 ## Đếm số loại ký tự trong xâu
 
@@ -575,7 +575,70 @@ int main() {
 ## Tạo email và mật khẩu 2
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+vector<string> email_list, pw_list;
+
+string to_lower(string s) {
+  for (char &c : s) c = tolower(c);
+  return s;
+}
+
+string make_email(const vector<string>& v, string domain = "@xyz.edu.vn") {
+  int n = v.size() - 1;
+  if (n < 1) return "Invalid name!";
+  string s = v[n - 1];
+  for (int i = 0; i < n - 1; i++) {
+    s.push_back(v[i][0]);
+  }
+  string email = s + domain;
+  int cnt = count_if(email_list.begin(), email_list.end(), [&s](const string& email) {
+    return email.find(s) != string::npos;
+  });
+  if (cnt)
+    return s + to_string(cnt + 1) + domain;
+  return s + domain;
+}
+
+string zero_rm(const string& s) {
+  if (s[0] == '0') return s.substr(1);
+  return s;
+}
+
+int main() {
+  faster();
+  int t; cin >> t;
+  cin.ignore();
+  while (t--) {
+    string s, w; getline(cin, s);
+    stringstream input_parts(s);
+    vector<string> name_parts;
+    while (input_parts >> w) {
+      name_parts.push_back(to_lower(w));
+    }
+    if (name_parts.size() < 2) {
+      cout << "Invalid input!\n";
+      continue;
+    }
+    email_list.push_back(make_email(name_parts));
+    string s2 = name_parts[name_parts.size() - 1];
+    input_parts.str(s2);
+    input_parts.clear();
+    string pw;
+    while (getline(input_parts, w, '/')) {
+      pw += zero_rm(w);
+    }
+    pw_list.push_back(pw);
+  }
+  for (size_t i = 0; i < email_list.size(); i++) {
+    cout << email_list[i] << endl << pw_list[i] << endl;
+  }
+  return 0;
+}
 ```
 
 ## Ngôn ngữ lập trình Python
