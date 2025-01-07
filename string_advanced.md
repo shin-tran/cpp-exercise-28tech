@@ -1,4 +1,4 @@
-# String advanced | Phụ 18 1:35:00 | Chính 17
+# String advanced | Phụ 18 1:44:00 | Chính 17
 
 ## Đếm số loại ký tự trong xâu
 
@@ -680,7 +680,28 @@ int main() {
 ## Ghép xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  int t; cin >> t;
+  vector<string> v;
+  while (t--) {
+    string s; cin >> s;
+    v.push_back(s);
+  }
+  sort(v.begin(), v.end(), [](const string& a, const string& b)->bool {
+    string ab = a + b;
+    string ba = b + a;
+    return ab > ba;
+  });
+  for (string s : v) cout << s;
+  return 0;
+}
 ```
 
 ## Xâu có đầu cuối giống nhau
