@@ -644,7 +644,25 @@ int main() {
 ## Ngôn ngữ lập trình Python
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; getline(cin, s);
+  string t = "python";
+  int cnt = 0;
+  for (size_t i = 0; i < s.length(); i++) {
+    if (cnt >= 6) break;
+    if (s[i] == t[cnt]) ++cnt;
+  }
+  if (cnt == 6) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Tập từ chung của 2 xâu
