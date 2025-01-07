@@ -713,7 +713,55 @@ int main() {
 ## Số lớn nhất, nhỏ nhất
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+void find_max(int m, int s) {
+  string res = "";
+  while (m--) {
+    if (s >= 9) {
+      res += to_string(9);
+      s -= 9;
+    } else {
+      res += to_string(s);
+      s = 0;
+    }
+  }
+  cout << res;
+}
+
+void find_min(int m, int s) {
+  string res = "";
+  m--; s--;
+  while (m--) {
+    if (s >= 9) {
+      res += to_string(9);
+      s -= 9;
+    }
+    else {
+      res += to_string(s) + res;
+      s = 0;
+    }
+  }
+  ++s;
+  res = to_string(s) + res;
+  cout << res;
+}
+
+int main() {
+  faster();
+  int m, s; cin >> m >> s;
+  if (m * 9 < s || s == 0) cout << "NOT FOUND";
+  else {
+    find_min(m, s);
+    cout << endl;
+    find_max(m, s);
+  }
+  return 0;
+}
 ```
 
 ## Xâu con liên tiếp các kí tự giống nhau
