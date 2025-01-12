@@ -861,7 +861,27 @@ int main() {
 ## Tính tổng các số xuất hiện trong xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; cin >> s;
+  s += '@';
+  ll sum = 0, tmp = 0;
+  for (char c : s) {
+    if (isdigit(c)) tmp = tmp * 10 + (c - '0');
+    else {
+      sum += tmp;
+      tmp = 0;
+    }
+  }
+  cout << sum;
+  return 0;
+}
 ```
 
 ## Ghép số
