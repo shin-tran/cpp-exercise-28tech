@@ -1004,6 +1004,7 @@ int main() {
   for (int i = n - 1; i >= 0; i--) {
     so += (s[i] - '0') * lt;
     so %= 5;
+    lt *= 2;
     lt %= 5;
   }
   if (so == 0) cout << "YES";
