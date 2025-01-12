@@ -1,4 +1,4 @@
-# String advanced | Phụ 18 1:44:00 | Chính 17
+# String advanced | Phụ 19 | Chính 17 40:27
 
 ## Đếm số loại ký tự trong xâu
 
@@ -707,7 +707,26 @@ int main() {
 ## Xâu có đầu cuối giống nhau
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; cin >> s;
+  int cnt[256] = {0};
+  for (char x : s) cnt[x]++;
+  ll ans = s.size();
+  for (int i = 0; i < 256; i++) {
+    if (cnt[i] != 0) {
+      ans += 1ll * cnt[i] * (cnt[i] - 1) / 2;
+    }
+  }
+  cout << ans;
+  return 0;
+}
 ```
 
 ## Số lớn nhất, nhỏ nhất
