@@ -1,4 +1,4 @@
-# String advanced | Phụ 19 | Chính 17 40:27
+# String advanced | Phụ 19 | Chính 18
 
 ## Đếm số loại ký tự trong xâu
 
@@ -1097,7 +1097,40 @@ int main() {
 ## Lũy thừa với cơ số lớn
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+ll pow_mod(ll a, ll b, ll c) {
+  ll res = 1;
+  while (b) {
+    if (b % 2) {
+      res *= a;
+      res %= c;
+    }
+    a *= a;
+    a %= c;
+    b /= 2;
+  }
+  return res;
+}
+
+int main() {
+  faster();
+  string n;
+  int mod = 1e9 + 7;
+  ll m;
+  cin >> n >> m;
+  ll res = 0;
+  for (int i = 0; i < n.size(); i++) {
+    res = res * 10 + (n[i] - '0');
+    res %= mod;
+  }
+  cout << pow_mod(res, m, mod);
+  return 0;
+}
 ```
 
 ## Chữ số cuối cùng
@@ -1121,17 +1154,79 @@ int main() {
 ## Số may mắn
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; cin >> s;
+  int res = 0;
+  for (char c : s) {
+    res += c - '0';
+  }
+  while (res > 9) {
+    int n = res;
+    res = 0;
+    while (n) {
+      res += n % 10;
+      n /= 10;
+    }
+  }
+  if (res == 9) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Xóa cụm 111
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s, t = "111"; cin >> s;
+  int pos = s.find(t);
+  if (pos != string::npos) {
+    s.erase(pos, t.size());
+  }
+  if (!s.empty()) cout << s;
+  else cout << "EMPTY";
+  return 0;
+}
 ```
 
 ## Tích giai thừa các chữ số
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; cin >> s;
+  int len = s.size();
+  string ans = "";
+  for (int i = 0; i < len; i++) {
+    if (s[i] == '0' || s[i] == '1') continue;
+    else if (s[i] == '4') ans += "223";
+    else if (s[i] == '6') ans += "35";
+    else if (s[i] == '8') ans += "2227";
+    else if (s[i] == '9') ans += "2337";
+    else ans += s[i];
+  }
+  sort(ans.begin(), ans.end(), greater<char>());
+  cout << ans;
+  return 0;
+}
 ```
