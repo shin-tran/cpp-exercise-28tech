@@ -1064,7 +1064,34 @@ int main() {
 ## Ước chung lớn nhất 1
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+ll gcd(ll a, ll b) {
+  while (b) {
+    ll temp = a;
+    a %= b;
+    b = temp;
+  }
+  return a;
+}
+
+int main() {
+  faster();
+  string n;
+  ll m;
+  cin >> n >> m;
+  ll res = 0;
+  for (int i = 0; i < n.size(); i++) {
+    res = res * 10 + (n[i] - '0');
+    res %= m;
+  }
+  cout << gcd(m, res);
+  return 0;
+}
 ```
 
 ## Lũy thừa với cơ số lớn
