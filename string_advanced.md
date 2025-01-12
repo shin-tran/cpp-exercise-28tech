@@ -990,7 +990,26 @@ int main() {
 ## Số nhị phân chia hết cho 5
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; cin >> s;
+  int n = s.size();
+  ll so = 0, lt = 1;
+  for (int i = n - 1; i >= 0; i--) {
+    so += (s[i] - '0') * lt;
+    so %= 5;
+    lt %= 5;
+  }
+  if (so == 0) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Số nhị phân chia hết cho 2^K
