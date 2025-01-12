@@ -826,7 +826,36 @@ int main() {
 ## Số lớn nhất xuất hiện trong xâu
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool cmp(const string& a, const string& b) {
+  if (a.size() != b.size()) return a.size() > b.size();
+  return a > b;
+}
+
+int main() {
+  faster();
+  string s; cin >> s;
+  s += '@';
+  vector<string> num;
+  string tmp = "";
+  for (char c : s) {
+    if (isdigit(c)) tmp += c;
+    else {
+      while (tmp.size() > 1 && tmp[0] == '0') tmp.erase(0, 1);
+      if (tmp != "")
+        num.push_back(tmp);
+      tmp = "";
+    }
+  }
+  sort(num.begin(), num.end(), cmp);
+  cout << num[0];
+  return 0;
+}
 ```
 
 ## Tính tổng các số xuất hiện trong xâu
