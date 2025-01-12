@@ -795,7 +795,7 @@ typedef long long ll;
 int main() {
   faster();
   string s; cin >> s;
-  s += '0';
+  s += '@';
   int cnt = 1, res = 1;
   char ans = s[0];
   for (int i = 1; i < s.size(); i++) {
@@ -896,7 +896,7 @@ typedef long long ll;
 int main() {
   faster();
   string s; cin >> s;
-  s += 'a';
+  s += '@';
   vector<string> v;
   string temp = "";
   for (size_t i = 0; i < s.size(); i++) {
