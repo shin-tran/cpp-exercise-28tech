@@ -1016,7 +1016,25 @@ int main() {
 ## Số nhị phân chia hết cho 2^K
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; cin >> s;
+  int k; cin >> k;
+  int cnt = 0;
+  for (int i = s.size() - 1; i >= 0; i--) {
+    if (s[i] == '0') ++cnt;
+    else break;
+  }
+  if (cnt >= k) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Phép chia dư
