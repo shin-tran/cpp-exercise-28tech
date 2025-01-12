@@ -773,7 +773,7 @@ void find_min(int m, int s) {
 int main() {
   faster();
   int m, s; cin >> m >> s;
-  if (m * 9 < s || s == 0) cout << "NOT FOUND";
+  if (m * 9 < s || (s == 0 && m > 1)) cout << "NOT FOUND";
   else {
     find_min(m, s);
     cout << endl;
@@ -786,7 +786,35 @@ int main() {
 ## Xâu con liên tiếp các kí tự giống nhau
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  string s; cin >> s;
+  s += '0';
+  int cnt = 1, res = 1;
+  char ans = s[0];
+  for (int i = 1; i < s.size(); i++) {
+    if (s[i] == s[i - 1]) {
+      ++cnt;
+    } else {
+      if (cnt > res) {
+        res = cnt;
+        ans = s[i - 1];
+      } else if (cnt == res) {
+        ans = max(ans, s[i - 1]);
+      }
+      cnt = 1;
+    }
+  }
+  string kq = string(res, ans);
+  cout << kq;
+  return 0;
+}
 ```
 
 ## Xâu con liên tiếp các kí tự khác nhau
