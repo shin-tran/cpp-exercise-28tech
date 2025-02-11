@@ -1,4 +1,4 @@
-# String advanced | Phụ 19 | Chính 18
+# String advanced | Phụ 20 | Chính 18
 
 ## Đếm số loại ký tự trong xâu
 
@@ -918,43 +918,198 @@ int main() {
 ## Tổng chữ số của số nguyên
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+
+int main() {
+  faster();
+  string s; cin >> s;
+  int sum = 0;
+  for (size_t i = 0; i < s.length(); i++)
+    sum += s[i] - '0';
+  cout << sum;
+  return 0;
+}
 ```
 
 ## Số đẹp 1
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int ngto(int n) {
+  for (int i = 2; i <= sqrt(n); i++)
+    if (n % i == 0) return 0;
+  return n > 1;
+}
+
+int check(string s) {
+  int sum = 0;
+  for (char c : s) {
+    if (c != '2' && c != '3' && c != '5' && c != '7')
+      return 0;
+    sum += c - '0';
+  }
+  return ngto(sum);
+}
+
+int main() {
+  faster();
+  string s; cin >> s;
+  if (check(s)) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Số đẹp 2
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int check(string s) {
+  int l = 0, r = s.size() - 1, ok = 0;
+  while (l <= r) {
+    if (s[l] != s[r]) return 0;
+    if (s[l] == '6') ok = 1;
+    l++; r--;
+  }
+  return ok;
+}
+
+int main() {
+  faster();
+  string s; cin >> s;
+  if (check(s)) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Số đẹp 3
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int tang(string s) {
+  for (size_t i = 1; i < s.size(); i++)
+    if (s[i] < s[i - 1]) return 0;
+  return 1;
+}
+
+int giam(string s) {
+  for (size_t i = 1; i < s.size(); i++)
+    if (s[i] > s[i - 1]) return 0;
+  return 1;
+}
+
+int main() {
+  faster();
+  string s; cin >> s;
+  if (tang(s) || giam(s)) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Số chia hết cho 6
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+ll modCal(string s, int n) {
+  ll mod = 0;
+  for (size_t i = 0; i < s.size(); i++) {
+    mod = (mod * 10 + s[i] - '0') % n;
+  }
+  return mod;
+}
+
+int main() {
+  faster();
+  string s;
+  ll n = 6;
+  cin >> s;
+  if (modCal(s, n) == 0) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Số chia hết cho 4
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int check(string s) {
+  int n = s.size();
+  if (n == 1) {
+    if (n == 1) {
+      if ((s[n-1] - '0') % 4 == 0) return 1;
+      return 0;
+    }
+  }
+  string tmp = "";
+  tmp += s[n-2];
+  tmp += s[n-1];
+  return (stoi(tmp) % 4 == 0);
+}
+
+int main() {
+  faster();
+  string s; cin >> s;
+  if (check(s)) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Số chia hết cho 15
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int check(string s) {
+  int n = s.size();
+  int sum = 0;
+  for (int i = 0; i < n; i++)
+    sum += s[i] - '0';
+  return (sum % 3 == 0 && (s[n-1] - '0') % 5 == 0);
+}
+
+int main() {
+  faster();
+  string s; cin >> s;
+  if (check(s)) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Số chia hết cho 25
@@ -984,7 +1139,29 @@ int main() {
 ## Số chia hết cho 11
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int check(string s) {
+  int s1 = 0, s2 = 0;
+  for (int i = 0; i < s.size(); i++) {
+    if (i % 2 == 0) s1 += s[i] - '0';
+    else s2 += s[i] - '0';
+  }
+  int k = abs(s1 - s2);
+  return k % 11 == 0;
+}
+
+int main() {
+  faster();
+  string s; cin >> s;
+  if (check(s)) cout << "YES";
+  else cout << "NO";
+  return 0;
+}
 ```
 
 ## Số nhị phân chia hết cho 5
@@ -1142,7 +1319,23 @@ int main() {
 ## Tìm số dư
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int main() {
+  faster();
+  int n, mod = 5; cin >> n;
+  ll res = 0;
+  for (int i = 1; i <= 4; i++) {
+    int ans = pow(i, n);
+    res += ans % mod;
+  }
+  cout << res;
+  return 0;
+}
 ```
 
 ## Ước chung lớn nhất 2
