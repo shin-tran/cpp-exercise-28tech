@@ -1,4 +1,4 @@
-# String advanced | Phụ 20 | Chính 18
+# String advanced
 
 ## Đếm số loại ký tự trong xâu
 
