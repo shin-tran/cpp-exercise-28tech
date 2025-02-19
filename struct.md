@@ -164,7 +164,7 @@ int main() {
 }
 ```
 
-## Cấu trúc sinh viên
+## Cấu trúc sinh viên 1
 
 ```c
 #include <bits/stdc++.h>
@@ -204,22 +204,125 @@ int main() {
 }
 ```
 
-##
+## Cấu trúc nhân viên
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct NhanVien {
+  string ma = "00001";
+  string ten, gt, ns, dc, mst, hd;
+};
+
+void nhap(NhanVien &a) {
+  getline(cin, a.ten);
+  cin >> a.gt >> a.ns;
+  cin.ignore();
+  getline(cin, a.dc);
+  cin >> a.mst >> a.hd;
+}
+
+void in(NhanVien a) {
+  cout << a.ma << " " << a.ten << " "
+       << a.gt << " " << a.ns << " "
+       << a.dc << " " << a.mst << " "
+       << a.hd << endl;
+}
+
+int main() {
+  faster();
+  NhanVien a;
+  nhap(a);
+  in(a);
+  return 0;
+}
 ```
 
-##
+## Cấu trúc sinh viên 2
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct SinhVien {
+  string msv = "N20DCCN001";
+  string ten, lop, ns;
+  float gpa;
+};
+
+void nhapThongTinSV(SinhVien &a) {
+  getline(cin, a.ten);
+  cin >> a.lop;
+  cin >> a.ns;
+  cin >> a.gpa;
+  if (a.ns[1] == '/') a.ns = "0" + a.ns;
+  if (a.ns[4] == '/') a.ns.insert(3, "0");
+}
+
+void inThongTinSV(SinhVien a) {
+  cout << a.msv << " " << a.ten << " "
+       << a.lop << " " << a.ns << " "
+       << fixed << setprecision(2) << a.gpa << endl;
+}
+
+int main() {
+  faster();
+  SinhVien a;
+  nhapThongTinSV(a);
+  inThongTinSV(a);
+  return 0;
+}
 ```
 
-##
+## Danh sách nhân viên
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct NhanVien {
+  string ten, gt, ns, dc, mst, hd;
+};
+
+void nhap(NhanVien &a) {
+  getline(cin, a.ten);
+  cin >> a.gt >> a.ns;
+  cin.ignore();
+  getline(cin, a.dc);
+  cin >> a.mst >> a.hd;
+  cin.ignore();
+}
+
+void inds(NhanVien a[], int n) {
+  int s = 0;
+  for (int i = 0; i < n; ++i) {
+    s = i + 1;
+    cout << setw(5) << setfill('0') << s << " ";
+    cout << a[i].ten << " " << a[i].gt << " "
+         << a[i].ns << " " << a[i].dc << " "
+         << a[i].mst << " " << a[i].hd << endl;
+  }
+}
+
+int main() {
+  faster();
+  NhanVien ds[50];
+  int n; cin >> n;
+  cin.ignore();
+  for (int i = 0; i < n; ++i) nhap(ds[i]);
+  inds(ds, n);
+  return 0;
+}
 ```
 
 ##
