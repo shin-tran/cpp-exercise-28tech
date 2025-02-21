@@ -1,4 +1,4 @@
-# String advanced | Phụ 21 | Chính 19 48:00
+# String advanced | Phụ 21 8:00 | Chính 20
 
 ## Phân số
 
@@ -325,19 +325,84 @@ int main() {
 }
 ```
 
-##
+## Diện tích hình tròn ngoại tiếp tam giác
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+#define PI 3.141592653589793238
+
+struct point {
+  double a, b;
+  double distance(point p) {
+    return sqrt(pow(a - p.a, 2) + pow(b - p.b, 2));
+  }
+  void nhap() {
+    cin >> a >> b;
+  }
+};
+
+void solve(point x, point y, point z) {
+  double x1 = x.distance(y), x2 = x.distance(z), x3 = y.distance(z);
+  if (x1 <= 0 || x2 <= 0 || x3 <= 0 || x1 + x2 <= x3 || x2 + x3 <= x1 || x1 + x3 <= x2) {
+    cout << "INVALID\n"; return;
+  }
+  double p = (x1 + x2 + x3) / 2;
+  double dt = sqrt(p * (p - x1) * (p - x2) * (p - x3));
+  double r = x1 * x2 * x3 / (4 * dt);
+  cout << fixed << setprecision(3) << PI * r * r << endl;
+}
+
+int main() {
+  faster();
+  int t; cin >> t;
+  while (t--) {
+    point x, y, z;
+    x.nhap();
+    y.nhap();
+    z.nhap();
+    solve(x, y, z);
+  }
+  return 0;
+}
 ```
 
-##
+## Số thuận nghịch giảm dần
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+bool check(string s) {
+  if (s.size() < 2) return false;
+  string t = s;
+  reverse(s.begin(), s.end());
+  return t == s;
+}
+
+int main() {
+  faster();
+  auto cmp = [](const string a, const string b) {
+    return (a.size() != b.size() ? a.size() > b.size() : a > b);
+  };
+  map<string, int, decltype(cmp)> mp(cmp);
+  string s;
+  while (cin >> s) {
+    if (check(s)) mp[s]++;
+  }
+  for (auto it : mp) cout << it.first << " " << it.second << endl;
+  return 0;
+}
 ```
 
-##
+## Trẻ nhất - Già nhất
 
 ```c
 

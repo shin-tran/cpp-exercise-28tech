@@ -1156,7 +1156,7 @@ int main() {
     movies.push_back({start, end});
   }
   sort(movies.begin(), movies.end(), cmp);
-  int ans = 0, last_end_time = 0; 
+  int ans = 0, last_end_time = 0;
   for (int i = 0; i < n; i++) {
     if (movies[i].first >= last_end_time) {
       ans++;
@@ -1329,6 +1329,63 @@ int main() {
     } else l = m + 1;
   }
   cout << res + min(x, y);
+  return 0;
+}
+```
+
+## Quick Sort
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+int partition(int a[], int l, int r) {
+  int pivot = a[r];
+  int i = l - 1;
+  for (int j = l; j < r; j++) {
+    if (a[j] <= pivot) {
+      ++i;
+      swap(a[i], a[j]);
+    }
+  }
+  ++i;
+  swap(a[i], a[r]);
+  return i;
+}
+
+void quickSortLomuto(int a[], int l, int r) {
+  if (l >= r) return;
+  int p = partition(a, l, r);
+  quickSortLomuto(a, l, p - 1);
+  quickSortLomuto(a, p + 1, r);
+}
+
+void quickSortHoare(int a[], int l, int r){
+  int p = a[(l+r)/2];
+  int i = l, j = r;
+  while (i <= j){
+    while (a[i] < p) i++;
+    while (a[j] > p) j--;
+    if (i <= j){
+      swap(a[i], a[j]);
+      i++; j--;
+    }
+  }
+  if (l < j) quickSortHoare(a, l, j);
+  if (i < r) quickSortHoare(a, i, r);
+}
+
+int main() {
+  faster();
+  int n; cin >> n;
+  int a[n];
+  srand(time(0));
+  for (int i = 0; i < n; i++) a[i] = rand() % 1000;
+  quickSortHoare(a, 0, n - 1);
+  for (int x : a) cout << x << " ";
   return 0;
 }
 ```
