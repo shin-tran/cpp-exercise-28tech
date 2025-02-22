@@ -1,11 +1,12 @@
+# Others
 
-#### 
+##
 
 ```c
 
 ```
 
-#### Ước số nguyên tố nhỏ nhất
+## Ước số nguyên tố nhỏ nhất
 
 ```c
 #include <bits/stdc++.h>
@@ -46,7 +47,7 @@ int main() {
 }
 ```
 
-#### Phân tích thừa số nguyên tố
+## Phân tích thừa số nguyên tố
 
 ```c
 #include <bits/stdc++.h>
@@ -121,7 +122,7 @@ int main() {
 }
 ```
 
-#### Tích luỹ thừa nhị phân (Luỹ thừa nhanh)
+## Tích luỹ thừa nhị phân (Luỹ thừa nhanh)
 
 ```c
 #include <bits/stdc++.h>
@@ -145,7 +146,7 @@ int main() {
 }
 ```
 
-#### Lý thuyết số - Đồng dư
+## Lý thuyết số - Đồng dư
 
 ```c
 #include <bits/stdc++.h>
@@ -218,7 +219,7 @@ int main() {
 }
 ```
 
-#### Tổ hợp chập k của n
+## Tổ hợp chập k của n
 
 ```c
 #include <bits/stdc++.h>
@@ -246,7 +247,7 @@ int main() {
 }
 ```
 
-#### Số Fibonacci
+## Số Fibonacci
 
 ```c
 #include <bits/stdc++.h>
@@ -282,7 +283,7 @@ int main() {
 }
 ```
 
-#### Phi hàm Euler
+## Phi hàm Euler
 
 ```c
 #include <bits/stdc++.h>
@@ -320,7 +321,7 @@ int main() {
 }
 ```
 
-#### T prime
+## T prime
 
 ```c
 #include <bits/stdc++.h>
@@ -353,7 +354,7 @@ int main() {
 }
 ```
 
-#### T prime 2
+## T prime 2
 
 ```c
 #include <bits/stdc++.h>
@@ -390,7 +391,7 @@ int main() {
 }
 ```
 
-#### T prime 3
+## T prime 3
 
 ```c
 #include <bits/stdc++.h>
@@ -429,7 +430,7 @@ int main() {
 }
 ```
 
-#### Cặp số nguyên tố
+## Cặp số nguyên tố
 
 ```c
 #include <bits/stdc++.h>
@@ -449,7 +450,7 @@ int main() {
 }
 ```
 
-#### Goldbach conjecture
+## Goldbach conjecture
 
 ```c
 #include <bits/stdc++.h>

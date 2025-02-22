@@ -1,7 +1,6 @@
-
 # Giải bài vẽ hình
 
-#### Bài 1
+## Bài 1
 
 ```c
 #include <iostream>
@@ -21,7 +20,7 @@ int main() {
 }
 ```
 
-#### Bài 2
+## Bài 2
 
 ```c
 #include <iostream>
@@ -45,7 +44,7 @@ int main() {
 }
 ```
 
-#### Bài 3
+## Bài 3
 
 ```c
 #include <iostream>
@@ -65,7 +64,7 @@ int main() {
 }
 ```
 
-#### Bài 4
+## Bài 4
 
 ```c
 #include <iostream>
@@ -85,7 +84,7 @@ int main() {
 }
 ```
 
-#### Bài 5
+## Bài 5
 
 ```c
 #include <iostream>
@@ -113,7 +112,7 @@ int main() {
 }
 ```
 
-#### Bài 6
+## Bài 6
 
 ```c
 #include <iostream>
@@ -134,7 +133,7 @@ int main() {
 }
 ```
 
-#### Bài 7
+## Bài 7
 
 ```c
 #include <iostream>
@@ -155,7 +154,7 @@ int main() {
 }
 ```
 
-#### Bài 8
+## Bài 8
 
 ```c
 #include <iostream>
@@ -176,7 +175,7 @@ int main() {
 }
 ```
 
-#### Bài 9
+## Bài 9
 
 ```c
 #include <iostream>
@@ -203,7 +202,7 @@ int main() {
 }
 ```
 
-#### Bài 10
+## Bài 10
 
 ```c
 #include <iostream>
@@ -219,7 +218,7 @@ int main() {
       if (i == 1 || i == h || j == 1 || j == h || i == j || j == h - i + 1) cout << "*";
       else cout << " ";
     }
-    
+
     cout << endl;
   }
 
@@ -227,7 +226,7 @@ int main() {
 }
 ```
 
-#### Bài 11
+## Bài 11
 
 ```c
 #include <iostream>
@@ -243,7 +242,7 @@ int main() {
       if (i == j || j == h - i + 1) cout << "*";
       else cout << " ";
     }
-    
+
     cout << endl;
   }
 
@@ -251,7 +250,7 @@ int main() {
 }
 ```
 
-#### Bài 12
+## Bài 12
 
 ```c
 #include <iostream>
@@ -274,7 +273,7 @@ int main() {
 }
 ```
 
-#### Bài 13
+## Bài 13
 
 ```c
 #include <iostream>
@@ -298,7 +297,7 @@ int main() {
 }
 ```
 
-#### Bài 14
+## Bài 14
 
 ```c
 #include <iostream>
@@ -322,7 +321,7 @@ int main() {
 }
 ```
 
-#### Bài 15
+## Bài 15
 
 ```c
 #include <iostream>
@@ -346,7 +345,7 @@ int main() {
 }
 ```
 
-#### Bài 16
+## Bài 16
 
 ```c
 #include <iostream>
@@ -368,7 +367,7 @@ int main() {
 }
 ```
 
-#### Bài 17
+## Bài 17
 
 ```c
 #include <iostream>
@@ -390,7 +389,7 @@ int main() {
 }
 ```
 
-#### Bài 18
+## Bài 18
 
 ```c
 #include <iostream>
@@ -416,7 +415,7 @@ int main() {
 }
 ```
 
-#### Bài 19
+## Bài 19
 
 ```c
 #include <iostream>
@@ -439,7 +438,7 @@ int main() {
 }
 ```
 
-#### Bài 20
+## Bài 20
 
 ```c
 #include <iostream>
@@ -460,7 +459,7 @@ int main() {
 }
 ```
 
-#### Bài 21
+## Bài 21
 
 ```c
 #include <iostream>
@@ -487,7 +486,7 @@ int main() {
 }
 ```
 
-#### Bài 22
+## Bài 22
 
 ```c
 #include <iostream>
@@ -509,7 +508,7 @@ int main() {
 }
 ```
 
-#### Bài 23
+## Bài 23
 
 ```c
 #include <iostream>
@@ -531,7 +530,7 @@ int main() {
 }
 ```
 
-#### Bài 24
+## Bài 24
 
 ```c
 #include <iostream>
@@ -554,7 +553,7 @@ int main() {
 }
 ```
 
-#### Bài 25
+## Bài 25
 
 ```c
 #include <iostream>
@@ -576,7 +575,7 @@ int main() {
 }
 ```
 
-#### Bài 26
+## Bài 26
 
 ```c
 #include <iostream>
@@ -605,7 +604,7 @@ int main() {
 }
 ```
 
-#### Bài 27
+## Bài 27
 
 ```c
 #include <iostream>
@@ -632,7 +631,7 @@ int main() {
 }
 ```
 
-#### Bài 28
+## Bài 28
 
 ```c
 #include <iostream>
