@@ -1,4 +1,4 @@
-# String advanced | Phụ 21 8:00 | Chính 20
+# String advanced | Phụ 21 17:00 | Chính 20
 
 ## Phân số
 
@@ -440,34 +440,307 @@ int main() {
 }
 ```
 
-##
+## Phép toán với phân số
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+ll ucln(ll a, ll b) {
+  while (b) {
+    ll t = a % b;
+    a = b; b = t;
+  }
+  return a;
+}
+
+struct PhanSo {
+  ll tu, mau;
+};
+
+void nhap(PhanSo &p) {
+  cin >> p.tu >> p. mau;
+}
+
+void rutGon(PhanSo &p) {
+  ll k = ucln(p.tu, p.mau);
+  p.tu /= k; p.mau /= k;
+}
+
+void in(PhanSo p) {
+  cout << p.tu << "/" << p.mau << " ";
+}
+
+PhanSo tong(PhanSo a, PhanSo b) {
+  PhanSo res;
+  res.mau = 1ll * a.mau * b.mau;
+  res.tu = 1ll * a.tu * b.mau + 1ll * a.mau * b.tu;
+  rutGon(res);
+  return res;
+}
+
+void process(PhanSo a, PhanSo b) {
+  PhanSo c = tong(a, b);
+  c.tu = pow(c.tu, 2);
+  c.mau = pow(c.mau, 2);
+  rutGon(c);
+  in(c);
+  PhanSo d;
+  d.tu = a.tu * b.tu * c.tu;
+  d.mau = a.mau * b.mau * c.mau;
+  rutGon(d);
+  in(d);
+  cout << endl;
+}
+
+int main() {
+  faster();
+  int t; cin >> t;
+  while (t--) {
+    PhanSo a, b;
+    nhap(a); nhap(b);
+    process(a, b);
+  }
+  return 0;
+}
 ```
 
-##
+## Danh sách sinh viên 1
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct SinhVien {
+  string ma = "B20DCCN", ten, lop, ns;
+  float gpa;
+};
+
+void nhap(SinhVien a[], int n) {
+  for (int i = 0; i < n; i++) {
+    cin.ignore();
+    getline(cin, a[i].ten);
+    cin >> a[i].lop;
+    cin >> a[i].ns;
+    cin >> a[i].gpa;
+    if (a[i].ns[1] == '/') a[i].ns = "0" + a[i].ns;
+    if (a[i].ns[4] == '/') a[i].ns.insert(3, "0");
+  }
+}
+
+void in(SinhVien a[], int n) {
+  for (int i = 0; i < n; i++) {
+    cout << a[i].ma << setw(3) << setfill('0') << i + 1 << " "
+         << a[i].ten << " " << a[i].lop << " "
+         << a[i].ns << " " << fixed << setprecision(2) << a[i].gpa << endl;
+  }
+}
+
+int main() {
+  faster();
+  SinhVien ds[50];
+  int n; cin >> n;
+  nhap(ds, n);
+  in(ds, n);
+  return 0;
+}
 ```
 
-##
+## Danh sách sinh viên 2
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct SinhVien {
+  string ma = "B20DCCN", ten, lop, ns;
+  float gpa;
+};
+
+string to_lower(string s) {
+  for (char &c : s) {
+    if (isupper(c)) c = tolower(c);
+  }
+  return s;
+}
+
+string chuanhoaNS(string s) {
+  if (s[1] == '/') s = "0" + s;
+  if (s[4] == '/') s.insert(3, "0");
+  return s;
+}
+
+string chuanhoaTen(string s) {
+  stringstream ss(s);
+  string w, res = "";
+  while (ss >> w) {
+    w = to_lower(w);
+    w[0] = toupper(w[0]);
+    res += w + " ";
+  }
+  res.pop_back();
+  return res;
+}
+
+void nhap(SinhVien a[], int n) {
+  for (int i = 0; i < n; i++) {
+    cin.ignore();
+    getline(cin, a[i].ten);
+    cin >> a[i].lop;
+    cin >> a[i].ns;
+    cin >> a[i].gpa;
+    a[i].ns = chuanhoaNS(a[i].ns);
+    a[i].ten = chuanhoaTen(a[i].ten);
+  }
+}
+
+void in(SinhVien a[], int n) {
+  for (int i = 0; i < n; i++) {
+    cout << a[i].ma << setw(3) << setfill('0') << i + 1 << " "
+         << a[i].ten << " " << a[i].lop << " "
+         << a[i].ns << " " << fixed << setprecision(2) << a[i].gpa << endl;
+  }
+}
+
+int main() {
+  faster();
+  SinhVien ds[50];
+  int n; cin >> n;
+  nhap(ds, n);
+  in(ds, n);
+  return 0;
+}
 ```
 
-##
+## Danh sách sinh viên 3
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct SinhVien {
+  string ma = "B20DCCN", ten, lop, ns;
+  int stt;
+  float gpa;
+};
+
+string to_lower(string s) {
+  for (char &c : s) {
+    if (isupper(c)) c = tolower(c);
+  }
+  return s;
+}
+
+string chuanhoaNS(string s) {
+  if (s[1] == '/') s = "0" + s;
+  if (s[4] == '/') s.insert(3, "0");
+  return s;
+}
+
+string chuanhoaTen(string s) {
+  stringstream ss(s);
+  string w, res = "";
+  while (ss >> w) {
+    w = to_lower(w);
+    w[0] = toupper(w[0]);
+    res += w + " ";
+  }
+  res.pop_back();
+  return res;
+}
+
+void nhap(SinhVien a[], int n) {
+  for (int i = 0; i < n; i++) {
+    a[i].stt = i + 1;
+    cin.ignore();
+    getline(cin, a[i].ten);
+    cin >> a[i].lop;
+    cin >> a[i].ns;
+    cin >> a[i].gpa;
+    a[i].ns = chuanhoaNS(a[i].ns);
+    a[i].ten = chuanhoaTen(a[i].ten);
+  }
+}
+
+void in(SinhVien a[], int n) {
+  for (int i = 0; i < n; i++) {
+    cout << a[i].ma << setw(3) << setfill('0') << a[i].stt << " "
+         << a[i].ten << " " << a[i].lop << " "
+         << a[i].ns << " " << fixed << setprecision(2) << a[i].gpa << endl;
+  }
+}
+
+void sapxep(SinhVien a[], int n) {
+  sort(a, a + n, [](const SinhVien &a, const SinhVien &b){
+    return a.gpa > b.gpa;
+  });
+}
+
+int main(){
+  SinhVien ds[50];
+  int n; cin >> n;
+  nhap(ds, n);
+  sapxep(ds, n);
+  in(ds, n);
+  return 0;
+}
 ```
 
-##
+## Sắp xếp danh sách mặt hàng
 
 ```c
+#include <bits/stdc++.h>
 
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct mathang {
+  int ma;
+  string ten, nhom;
+  float mua, ban, loinhuan;
+};
+
+void in(mathang a[], int n) {
+  for (int i = 0; i < n; i++)
+    cout << a[i].ma << " " << a[i].ten << " " << a[i].nhom << " "
+         << fixed << setprecision(2) << a[i].loinhuan << endl;
+}
+
+void nhap(mathang a[], int n) {
+  for (int i = 0; i < n; i++) {
+    a[i].ma = i + 1;
+    cin.ignore();
+    getline(cin, a[i].ten);
+    getline(cin, a[i].nhom);
+    cin >> a[i].mua >> a[i].ban;
+    a[i].loinhuan = a[i].ban - a[i].mua;
+  }
+}
+
+int main(){
+  faster();
+  mathang ds[50];
+  int n; cin >> n;
+  nhap(ds, n);
+  sort(ds, ds + n, [](const mathang &a, const mathang &b){
+    return a.loinhuan > b.loinhuan;
+  });
+  in(ds, n);
+  return 0;
+}
 ```
 
 ##
