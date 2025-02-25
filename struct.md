@@ -1,4 +1,4 @@
-# String advanced | Phụ 24 | Chính 21
+# String advanced
 
 ## Phân số
 
