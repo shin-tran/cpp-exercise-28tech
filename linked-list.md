@@ -1,6 +1,6 @@
 # linked list
 
-## Instaltion
+## Simply linked list
 
 ```c
 #include <bits/stdc++.h>
@@ -156,6 +156,126 @@ int main() {
         cout << "Nhap k: ";
         cin >> k;
         erase(&head, k);
+        break;
+    }
+  }
+  return 0;
+}
+```
+
+## Doubly linked list
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct node {
+  int data;
+  node *next;
+  node *prev;
+};
+
+node *makeNode(int x) {
+  node *newNode = new node;
+  newNode->data = x;
+  newNode->next = NULL;
+  newNode->prev = NULL;
+  return newNode;
+}
+
+int size(node *head) {
+  int cnt = 0;
+  while (head != NULL) {
+    ++cnt;
+    head = head->next;
+  }
+  return cnt;
+}
+
+void duyet(node *head) {
+  while (head != NULL) {
+    cout << head->data << " ";
+    head = head->next;
+  }
+}
+
+void pushFront(node **head, int x) {
+  node *newNode = makeNode(x);
+  newNode->next = *head;
+  if (*head != NULL) (*head)->prev = newNode;
+  *head = newNode;
+}
+
+void pushBack(node **head, int x) {
+  node *newNode = makeNode(x);
+  node *temp = *head;
+  if (*head == NULL) *head = makeNode(x);
+  else {
+    while (temp->next != NULL) {
+      temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->prev = temp;
+  }
+}
+
+void insert(node **head, int k, int x) {
+  int n = size(*head);
+  if (k < 1 || k > n + 1) return;
+  if (k == 1) {
+    pushFront(head, x);
+    return;
+  }
+  if (k == n + 1) {
+    pushBack(head, x);
+    return;
+  }
+  node *temp = *head;
+  for (int i = 1; i < k; ++i) temp = temp->next;
+  node *newNode = makeNode(x);
+  newNode->next = temp;
+  temp->prev->next = newNode;
+  newNode->prev = temp->prev;
+  temp->prev = newNode;
+}
+
+int main() {
+  node *head = NULL;
+  while (1) {
+    cout << "----------------\n";
+    cout << "1. Duyet.\n";
+    cout << "2. Them vao dau.\n";
+    cout << "3. Them vao cuoi.\n";
+    cout << "4. Them vao giua.\n";
+    cout << "0. Thoat.\n";
+    cout << "Nhap lua chon: ";
+    int lc; cin >> lc;
+    int x, k;
+    switch (lc) {
+      case 0: return 0;
+      case 1:
+        duyet(head);
+        cout << endl;
+        break;
+      case 2:
+        cout << "Nhap x: ";
+        cin >> x;
+        pushFront(&head, x);
+        break;
+      case 3:
+        cout << "Nhap x: ";
+        cin >> x;
+        pushBack(&head, x);
+        break;
+      case 4:
+        cout << "Nhap x: ";
+        cin >> x;
+        cout << "Nhap k: ";
+        cin >> k;
+        insert(&head, k, x);
         break;
     }
   }
