@@ -3,11 +3,9 @@
 ## Simply linked list
 
 ```c
-#include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
-#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-typedef long long ll;
 
 struct node {
   int data;
@@ -15,7 +13,7 @@ struct node {
 };
 
 node *makeNode(int x) {
-  node *newNode = new node();
+  node *newNode = new node;
   newNode->data = x;
   newNode->next = NULL;
   return newNode;
@@ -28,7 +26,7 @@ void duyet(node *head) {
   }
 }
 
-int countNode(node *head) {
+int size(node *head) {
   int cnt = 0;
   while (head != NULL) {
     ++cnt;
@@ -43,24 +41,48 @@ void pushFront(node **head, int x) {
   *head = newNode;
 }
 
-
 void pushBack(node **head, int x) {
-  node *temp = *head;
-  if (*head == NULL) {
+  if (*head == NULL)
     *head = makeNode(x);
-  } else {
-    while (temp->next != NULL) {
+  else {
+    node *temp = *head;
+    while (temp->next != NULL)
       temp = temp->next;
-    }
     temp->next = makeNode(x);
   }
 }
 
-void insert(node **head, int k, int x) {
-  int n = countNode(*head);
-  if (k < 1 || k > n + 1) return;
+void insertFrontK(node **head, int x, int k) {
+  if ((*head)->data == k) {
+    pushFront(head, x);
+    return;
+  }
+  node *temp = *head;
+  while (temp->next->data != k && temp->next != NULL) {
+    temp = temp->next;
+  }
+  node *newNode = makeNode(x);
+  newNode->next = temp->next;
+  temp->next = newNode;
+}
+
+void insertBackK(node **head, int x, int k) {
+  node *temp = *head;
+  while (temp->data != k && temp->next != NULL) {
+    temp = temp->next;
+  }
+  node *newNode = makeNode(x);
+  newNode->next = temp->next;
+  temp->next = newNode;
+}
+
+void insert(node **head, int x, int k) {
+  int n = size(*head);
+  if (k < 1 || k > n + 1)
+    return;
   if (k == 1) {
-    pushFront(head, x); return;
+    pushFront(head, x);
+    return;
   }
   node *temp = *head;
   for (int i = 1; i < k - 1; ++i) {
@@ -71,18 +93,25 @@ void insert(node **head, int k, int x) {
   temp->next = newNode;
 }
 
-void popFont(node **head) {
-  if (*head == NULL) return;
-  node *temp = *head;
-  *head = (*head)->next;
-  delete temp;
+void popFront(node **head) {
+  if (*head != NULL) {
+    node *temp = *head;
+    *head = (*head)->next;
+    delete temp;
+  }
+  else
+    cout << "Empty\n";
 }
 
 void popBack(node **head) {
-  if (*head == NULL) return;
+  if (*head == NULL) {
+    cout << "Empty\n";
+    return;
+  }
   node *temp = *head;
   if (temp->next == NULL) {
-    *head = NULL; delete temp;
+    *head = NULL;
+    delete temp;
     return;
   }
   while (temp->next->next != NULL) {
@@ -93,70 +122,224 @@ void popBack(node **head) {
   delete last;
 }
 
-void erase(node **head, int k) {
-  int n = countNode(*head);
-  if (k < 1 || k > n) return;
-  if (k == 1) popFont(head);
-  else {
-    node *temp = *head;
-    for (int i = 1; i < k - 1; ++i) {
-      temp = temp->next;
+void popK(node **head, int k) {
+  int n = size(*head);
+  if (k < 1 || k > n + 1)
+    return;
+  if (k == 1) {
+    popFront(head);
+    return;
+  }
+  node *temp = *head;
+  for (int i = 1; i < k - 1; ++i) {
+    temp = temp->next;
+  }
+  node *last = temp->next;
+  temp->next = last->next;
+  delete last;
+}
+
+void popX(node **head, int x) {
+  node *temp = *head;
+  while (temp->next->data != x && temp->next != NULL) {
+    temp = temp->next;
+  }
+  if (temp->next == NULL) {
+    cout << "Khong co gia tri x de xoa!\n";
+    return;
+  }
+  node *last = temp->next;
+  temp->next = last->next;
+  delete last;
+}
+
+void reverse(node **head) {
+  node *curr = *head, *next, *prev = NULL;
+  while (curr != NULL) {
+    next = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = next;
+  }
+  *head = prev;
+}
+
+void tachDS(node *head, node **chan, node **le) {
+  node *chanTail = NULL, *leTail = NULL;
+  while (head != NULL) {
+    if (head->data % 2 == 0) {
+      if (*chan == NULL) {
+        *chan = head;
+        chanTail = head;
+      } else {
+        chanTail->next = head;
+        chanTail = chanTail->next;
+      }
+    } else {
+      if (*le == NULL) {
+        *le = head;
+        leTail = head;
+      } else {
+        leTail->next = head;
+        leTail = leTail->next;
+      }
     }
-    node *kth = temp->next;
-    temp->next = kth->next;
-    delete kth;
+    head = head->next;
+  }
+  if (chanTail != NULL) chanTail->next = NULL;
+  if (leTail != NULL) leTail->next = NULL;
+}
+
+void selectionSort(node **head) {
+  if (*head == NULL) return;
+  node *temp = *head;
+  while (temp != NULL) {
+    node *min = temp;
+    node *r = temp->next;
+    while (r != NULL) {
+      if (min->data > r->data)
+        min = r;
+      r = r->next;
+    }
+    int x = temp->data;
+    temp->data = min->data;
+    min->data = x;
+    temp = temp->next;
   }
 }
 
+node *getTail(node *cur) {
+  while (cur != NULL && cur->next != NULL) cur = cur->next;
+  return cur;
+}
+
+node *partition(node *head, node *tail) {
+  node *pivot = head, *pre = head, *curr = head;
+  while (curr != tail->next) {
+    if (curr->data < pivot->data) {
+      int x = curr->data;
+      curr->data = pre->next->data;
+      pre->next->data = x;
+      pre = pre->next;
+    }
+    curr = curr->next;
+  }
+  int x = pivot->data;
+  pivot->data = pre->data;
+  pre->data = x;
+  return pre;
+}
+
+void quickSortHelper(node *head, node *tail) {
+  if (head == NULL || head == tail) return;
+  node *pivot = partition(head, tail);
+  quickSortHelper(head, pivot);
+  quickSortHelper(pivot->next, tail);
+}
+
+void quickSort(node **head) {
+  node *tail = getTail(*head);
+  quickSortHelper(*head, tail);
+  *head = *head;
+}
+
+
 int main() {
-  node *head = NULL;
+  node *head = NULL,
+       *chan = NULL,
+       *le = NULL;
+
   while (1) {
     cout << "----------------\n";
     cout << "1. Duyet.\n";
     cout << "2. Them vao dau.\n";
     cout << "3. Them vao cuoi.\n";
-    cout << "4. Them vao giua.\n";
-    cout << "5. Xoa node dau.\n";
-    cout << "6. Xoa node cuoi.\n";
-    cout << "7. Xoa node giua.\n";
+    cout << "4. Them truoc gia tri k.\n";
+    cout << "5. Them sau gia tri k.\n";
+    cout << "6. Them x vao vi tri k.\n";
+    cout << "7. Xoa node dau.\n";
+    cout << "8. Xoa node cuoi.\n";
+    cout << "9. Xoa node k.\n";
+    cout << "10. Xoa node gia tri x dau tien.\n";
+    cout << "11. Tach thanh 2 danh sach chan, le.\n";
+    cout << "12. Dao nguoc danh sach.\n";
+    cout << "13. Sap xep tang dan bang selection sort.\n";
+    cout << "14. Sap xep tang dan bang quick sort.\n";
     cout << "0. Thoat.\n";
     cout << "Nhap lua chon: ";
-    int lc; cin >> lc;
+    int lc;
+    cin >> lc;
     int x, k;
     switch (lc) {
-      case 0: return 0;
-      case 1:
-        duyet(head);
-        cout << endl;
-        break;
-      case 2:
-        cout << "Nhap x: ";
-        cin >> x;
-        pushFront(&head, x);
-        break;
-      case 3:
-        cout << "Nhap x: ";
-        cin >> x;
-        pushBack(&head, x);
-        break;
-      case 4:
-        cout << "Nhap x: ";
-        cin >> x;
-        cout << "Nhap k: ";
-        cin >> k;
-        insert(&head, k, x);
-        break;
-      case 5:
-        popFont(&head);
-        break;
-      case 6:
-        popBack(&head);
-        break;
-      case 7:
-        cout << "Nhap k: ";
-        cin >> k;
-        erase(&head, k);
-        break;
+    case 0:
+      return 0;
+    case 1:
+      duyet(head);
+      cout << endl;
+      break;
+    case 2:
+      cout << "Nhap x: ";
+      cin >> x;
+      pushFront(&head, x);
+      break;
+    case 3:
+      cout << "Nhap x: ";
+      cin >> x;
+      pushBack(&head, x);
+      break;
+    case 4:
+      cout << "Nhap x: ";
+      cin >> x;
+      cout << "Nhap k: ";
+      cin >> k;
+      insertFrontK(&head, x, k);
+      break;
+    case 5:
+      cout << "Nhap x: ";
+      cin >> x;
+      cout << "Nhap k: ";
+      cin >> k;
+      insertBackK(&head, x, k);
+      break;
+    case 6:
+      cout << "Nhap x: ";
+      cin >> x;
+      cout << "Nhap k: ";
+      cin >> k;
+      insert(&head, x, k);
+      break;
+    case 7:
+      popFront(&head);
+      break;
+    case 8:
+      popBack(&head);
+      break;
+    case 9:
+      cout << "Nhap k: ";
+      cin >> k;
+      popK(&head, k);
+      break;
+    case 10:
+      cout << "Nhap x: ";
+      cin >> x;
+      popX(&head, x);
+      break;
+    case 11:
+      tachDS(head, &chan, &le);
+      duyet(chan);
+      cout << endl;
+      duyet(le);
+      cout << endl;
+      break;
+    case 12:
+      reverse(&head);
+      break;
+    case 13:
+      selectionSort(&head);
+      break;
+    case 14:
+      quickSort(&head);
+      break;
     }
   }
   return 0;
