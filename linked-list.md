@@ -867,3 +867,185 @@ int main() {
   return 0;
 }
 ```
+
+## Kiem tra
+
+```c
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+struct TTSV {
+  string ten, lop, mssv;
+  float gpa;
+};
+
+struct node {
+  TTSV data;
+  node *next;
+};
+
+node *makeNode() {
+  node *newNode = new node;
+  cout << "Nhap ten: ";
+  getline(cin, newNode->data.ten);
+  cout << "Nhap lop: ";
+  getline(cin, newNode->data.lop);
+  cout << "Nhap MSSV: ";
+  cin >> newNode->data.mssv;
+  do {
+    cout << "Nhap GPA (0-4): ";
+    cin >> newNode->data.gpa;
+  } while (newNode->data.gpa < 0 || newNode->data.gpa > 4);
+  cin.ignore();
+  newNode->next = NULL;
+  return newNode;
+}
+
+void duyet(node *head) {
+  cout << left << setw(16)<< "Ten"
+       << setw(16) << "Lop"
+       << setw(16) << "MSSV"
+       << setw(16) << "GPA" << endl;
+  while (head) {
+    cout << left << setw(16) << head->data.ten
+       << setw(16) << head->data.lop
+       << setw(16) << head->data.mssv
+       << setw(16) << head->data.gpa << endl;
+    head = head->next;
+  }
+}
+
+void pushFront(node **head) {
+  node *newNode = makeNode();
+  newNode->next = (*head);
+  (*head) = newNode;
+}
+
+void pushBack(node **head) {
+  if (!(*head)) pushFront(head);
+  else {
+    node *temp = *head;
+    while (temp->next) {
+      temp = temp->next;
+    }
+    temp->next = makeNode();
+  }
+}
+
+void gpaGTThree(node *head) {
+  while (head) {
+    if (head->data.gpa >= 3) {
+      cout << left << setw(16)<< "Ten"
+           << setw(16) << "Lop"
+           << setw(16) << "MSSV"
+           << setw(16) << "GPA" << endl;
+      cout << left << setw(16) << head->data.ten
+           << setw(16) << head->data.lop
+           << setw(16) << head->data.mssv
+           << setw(16) << head->data.gpa << endl;
+    }
+    head = head->next;
+  }
+}
+
+void timMSSV(node *head, string s) {
+  while (head) {
+    if (head->data.mssv == s) {
+      cout << left << setw(16)<< "Ten"
+           << setw(16) << "Lop"
+           << setw(16) << "MSSV"
+           << setw(16) << "GPA" << endl;
+      cout << left << setw(16) << head->data.ten
+           << setw(16) << head->data.lop
+           << setw(16) << head->data.mssv
+           << setw(16) << head->data.gpa << endl;
+    }
+    head = head->next;
+  }
+}
+
+void popSVLTTwo(node **head) {
+  while (*head && (*head)->data.gpa < 2) {
+    node *temp = *head;
+    *head = (*head)->next;
+    delete temp;
+  }
+  node *curr = *head;
+  while (curr && curr->next) {
+    if (curr->next->data.gpa < 2) {
+      node *temp = curr->next;
+      curr->next = curr->next->next;
+      delete temp;
+    } else curr = curr->next;
+  }
+}
+
+void gpaGiamDan(node **head) {
+  node *temp = *head;
+  while (temp) {
+    node *max = temp, *j = temp->next;
+    while (j) {
+      if (max->data.gpa < j->data.gpa) max = j;
+      j = j->next;
+    }
+    if (max != temp) {
+      TTSV data = max->data;
+      max->data = temp->data;
+      temp->data = data;
+    }
+    temp = temp->next;
+  }
+}
+
+void addNewSV(node **head) {
+  node *newNode = makeNode();
+  if (!(*head) || (*head)->data.gpa < newNode->data.gpa) {
+    newNode->next = *head;
+    *head = newNode;
+    return;
+  }
+  node *curr = *head;
+  while (curr->next && curr->next->data.gpa >= newNode->data.gpa){
+    curr = curr->next;
+  }
+  newNode->next = curr->next;
+  curr->next = newNode;
+}
+
+int main() {
+  node *head = NULL;
+  while (1) {
+    cout << "---------- Thong tin sinh vien ----------\n";
+    cout << "0. Thoat\n";
+    cout << "1. Duyet\n";
+    cout << "2. Them vao dau\n";
+    cout << "3. Them vao cuoi\n";
+    cout << "4. TT sinh vien co GPA >= 3\n";
+    cout << "5. Tim sinh vien theo mssv\n";
+    cout << "6. Xoa sinh vien co diem < 2\n";
+    cout << "7. Sap xep danh sach theo thu tu GPA giam dan\n";
+    cout << "8. Them sinh vien moi vao danh sach giam dan\n";
+    int lc;
+    string s;
+    cout << "Nhap lua chon: "; cin >> lc;
+    cin.ignore();
+    switch (lc) {
+      case 0: return 0;
+      case 1: duyet(head); break;
+      case 2: pushFront(&head); break;
+      case 3: pushBack(&head); break;
+      case 4: gpaGTThree(head); break;
+      case 5:
+        cout << "Nhap MSSV: "; cin >> s;
+        timMSSV(head, s);
+        break;
+      case 6: popSVLTTwo(&head); break;
+      case 7: gpaGiamDan(&head); break;
+      case 8: addNewSV(&head); break;
+    }
+  }
+  return 0;
+}
+```
