@@ -1049,3 +1049,105 @@ int main() {
   return 0;
 }
 ```
+
+## Kiểm tra
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+#define faster() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+typedef long long ll;
+
+struct node {
+  string data;
+  node *next;
+};
+
+node *makeNode(string x) {
+  node *newNode = new node;
+  newNode->data = x;
+  newNode->next = NULL;
+  return newNode;
+}
+
+void push(node **top, string x) {
+  node *newNode = makeNode(x);
+  newNode->next = *top;
+  *top = newNode;
+}
+
+void pop(node **top) {
+  if (*top) {
+    node *temp = *top;
+    *top = (*top)->next;
+    delete temp;
+  }
+}
+
+string show(node *top) {
+  if (top) return top->data;
+  return "-1";
+}
+
+int size(node *top) {
+  int cnt = 0;
+  while (top) {
+    ++cnt;
+    top = top->next;
+  }
+  return cnt;
+}
+
+bool isEmpty(node *top) {
+  if (top) return false;
+  return true;
+}
+
+int degree(string x) {
+  if (x == "^") return 4;
+  if (x == "*" || x == "/" || x  == "%") return 3;
+  if (x == "+" || x == "-") return 2;
+  return 0;
+}
+
+bool isOperator(string x) {
+  return (x == "+" || x == "-" || x == "*" || x == "/" || x == "^" || x == "%");
+}
+
+int main() {
+  faster();
+  string s, postfix = ""; cin >> s;
+  node *stack = NULL;
+  int n = s.length();
+  for (int i = 0; i < n; ++i) {
+    string x(1, s[i]);
+    if (isalnum(s[i])) postfix += x;
+    else if (s[i] == '(') {
+      push(&stack, x);
+    }
+    else if (isOperator(x)) {
+      while (!isEmpty(stack) && show(stack) != "(" && degree(x) <= degree(show(stack))) {
+          postfix += show(stack);
+          pop(&stack);
+      }
+      push(&stack, x);
+    }
+    else if (s[i] == ')') {
+      while (!isEmpty(stack) && show(stack) != "(") {
+          postfix += show(stack);
+          pop(&stack);
+      }
+      if (!isEmpty(stack) && show(stack) == "(") {
+          pop(&stack);
+      }
+    }
+  }
+  while (!isEmpty(stack)) {
+    postfix += show(stack);
+    pop(&stack);
+  }
+  cout << postfix;
+  return 0;
+}
+```
