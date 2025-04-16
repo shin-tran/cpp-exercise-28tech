@@ -40,6 +40,17 @@ void inorder(node *root) {
   }
 }
 
+void bfs(node *root) {
+  queue<node *> q;
+  q.push(root);
+  while (!q.empty()) {
+    node *tmp = q.front(); q.pop();
+    cout << tmp->val << " ";
+    if (tmp->left != NULL) q.push(tmp->left);
+    if (tmp->right != NULL) q.push(tmp->right);
+  }
+}
+
 int main() {
   faster();
   node *root = NULL;
@@ -52,7 +63,7 @@ int main() {
       makeRoot(root, v, c);
     } else insertNode(root, u, v, c);
   }
-  inorder(root);
+  bfs(root);
   return 0;
 }
 ```
