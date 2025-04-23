@@ -1151,3 +1151,135 @@ int main() {
   return 0;
 }
 ```
+
+## Kiem tra 2
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct node {
+  int data;
+  node *next;
+};
+
+node *makeNode(int x) {
+  node *newNode = new node;
+  newNode->data = x;
+  newNode->next = NULL;
+  return newNode;
+}
+
+void pushFront(node **head, int x) {
+  node *newNode = makeNode(x);
+  newNode->next = *head;
+  *head = newNode;
+}
+
+void pushBack(node **head, int x) {
+  if (*head == NULL) *head = makeNode(x);
+  else {
+    node *temp = *head;
+    while (temp->next != NULL) {
+      temp = temp->next;
+    }
+    temp->next = makeNode(x);
+  }
+}
+
+void duyet(node *head) {
+  while (head) {
+    cout << head->data << " ";
+    head = head->next;
+  }
+}
+
+void insertFront(node **head, int x) {
+  node *newNode = makeNode(x);
+  newNode->next = *head;
+  *head = newNode;
+}
+
+void insertFrontY(node **head, int x, int y) {
+  node *temp = *head;
+  if (temp->data == y) {
+    insertFront(head, x);
+    return;
+  }
+  while (temp->next) {
+    if (temp->next->data == y) {
+      insertFront(head, x);
+      return;
+    }
+    temp = temp->next;
+  }
+  cout << "NOT FOUND";
+}
+
+void deleteNegativeNum(node **head) {
+  node *curr = *head, *prev = NULL;
+  while (curr) {
+    if (curr->data < 0) {
+      if (prev == NULL) {
+        *head = curr->next;
+        delete curr;
+        curr = *head;
+      } else {
+        prev->next = curr->next;
+        delete curr;
+        curr = prev->next;
+      }
+    } else {
+      prev = curr;
+      curr = curr->next;
+    }
+  }
+}
+
+bool hasDuplicates(node *head) {
+  if (!head) return false;
+  node *i = head;
+  while (i) {
+    node *j = i->next;
+    while (j) {
+      if (j->data == i->data) return true;
+      j = j->next;
+    }
+    i = i->next;
+  }
+  return false;
+}
+
+int smallestPositiveNum(node *head) {
+  int res = 1e9;
+  while (head) {
+    if (head->data > 0 && head->data < res) res = head->data;
+    head = head->next;
+  }
+  return res;
+}
+
+int main() {
+  node *head = NULL;
+  pushBack(&head, 7);
+  pushBack(&head, 5);
+  pushBack(&head, -2);
+  pushBack(&head, 7);
+  pushBack(&head, 4);
+  pushBack(&head, -3);
+  pushBack(&head, 8);
+  duyet(head);
+  cout << "\ninsertFrontY:\n";
+  insertFrontY(&head, 10, 7);
+  duyet(head);
+  cout << "\ndeleteNegativeNum:\n";
+  deleteNegativeNum(&head);
+  duyet(head);
+  if (hasDuplicates(head)) cout << "\nHas duplicates\n";
+  else cout << "\nNo duplicates\n";
+  cout << "smallestPositiveNum:\n";
+  cout << smallestPositiveNum(head);
+  return 0;
+}
+```
