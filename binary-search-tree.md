@@ -67,3 +67,60 @@ int main() {
   return 0;
 }
 ```
+
+## Nhi phan tim kiem
+
+```c
+#include <bits/stdc++.h>
+
+using namespace std;
+
+struct node {
+  int val;
+  node *left, *right;
+  node (int x) {
+    val = x;
+    left = right = NULL;
+  }
+};
+
+int insertNode(node **root, int x) {
+  if (*root != NULL) {
+    if ((*root)->val == x) return 0;
+    if ((*root)->val > x) return insertNode(&(*root)->left, x);
+    else return insertNode(&(*root)->right, x);
+  }
+  *root = new node(x);
+  return 1;
+}
+
+node *searchNode(node *root, int x) {
+  while (root) {
+    if (root->val == x) return root;
+    else if (root->val > x) root = root->left;
+    else root = root->right;
+  }
+  return NULL;
+}
+
+void inorder(node *root) {
+  if (root != NULL) {
+    inorder(root->left);
+    cout << root->val << " ";
+    inorder(root->right);
+  }
+}
+
+int main() {
+  node *root = NULL;
+  insertNode(&root, 1);
+  insertNode(&root, 2);
+  insertNode(&root, 3);
+  insertNode(&root, 4);
+  inorder(root);
+  node *res = searchNode(root, 5);
+  if (res) cout << res->val;
+  else cout << "NO";
+  return 0;
+}
+```
