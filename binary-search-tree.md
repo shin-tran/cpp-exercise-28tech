@@ -68,7 +68,7 @@ int main() {
 }
 ```
 
-## Nhi phan tim kiem
+## Nhị phân tìm kiếm
 
 ```c
 #include <bits/stdc++.h>
@@ -94,7 +94,15 @@ int insertNode(node **root, int x) {
   return 1;
 }
 
-node *searchNode(node *root, int x) {
+void inorder(node *root) {
+  if (root) {
+    inorder(root->left);
+    cout << root->val << " ";
+    inorder(root->right);
+  }
+}
+
+node *searchNode (node *root, int x) {
   while (root) {
     if (root->val == x) return root;
     else if (root->val > x) root = root->left;
@@ -103,24 +111,43 @@ node *searchNode(node *root, int x) {
   return NULL;
 }
 
-void inorder(node *root) {
-  if (root != NULL) {
-    inorder(root->left);
-    cout << root->val << " ";
-    inorder(root->right);
+node *minNode(node *root) {
+  while (root != NULL && root->left != NULL) root = root->left;
+  return root;
+}
+
+node *deleteNode(node *root, int x) {
+  if (root == NULL) return root;
+  if (root->val > x) root->left = deleteNode(root->left, x);
+  else if (root->val < x) root->right = deleteNode(root->right, x);
+  else {
+    if (root->left == NULL) {
+      node *temp = root->right;
+      delete root;
+      return temp;
+    } else if (root->right == NULL) {
+      node *temp = root->left;
+      delete root;
+      return temp;
+    } else {
+      node *temp = minNode(root->right);
+      root->val = temp->val;
+      root->right = deleteNode(root->right, temp->val);
+    }
   }
+  return root;
 }
 
 int main() {
   node *root = NULL;
-  insertNode(&root, 1);
-  insertNode(&root, 2);
-  insertNode(&root, 3);
   insertNode(&root, 4);
+  insertNode(&root, 2);
+  insertNode(&root, 6);
   inorder(root);
-  node *res = searchNode(root, 5);
-  if (res) cout << res->val;
-  else cout << "NO";
+  cout << endl;
+  deleteNode(root, 4);
+  inorder(root);
+  cout << endl;
   return 0;
 }
 ```
